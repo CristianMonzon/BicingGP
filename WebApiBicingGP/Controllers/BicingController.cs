@@ -1,42 +1,84 @@
+using BicingGPApplication.Domain.StationJson;
+using BicingGPApplication.Domain.StatusJson;
+using BicingGPApplication.MediatR;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
+using System.Net;
 using WebApiBicingGP.Domain;
+using WebApiBicingGP.Manager;
 
 namespace WebApiBicingGP.Controllers
 {
     [ApiController]
-    [Route("api/v2/[controller]")]
+    [Route("api/v1/")]
     public class BicingController : ControllerBase
     {
         private readonly IHttpClientFactory _httpClientFactory;
-        private const string APIURL = "http://api.citybik.es/v2/networks/bicing";
+        private readonly IMediator _mediator;
+        private readonly AppSettings _appSettings;
 
-        public BicingController(IHttpClientFactory httpClientFactory, ILogger<BicingController> logger)
+        private string? ApiUrlStatus
         {
-            _httpClientFactory = httpClientFactory;
+            get
+            {
+                return _appSettings?.StatusInformation;
+            }
+        }
+        private string? ApiUrlStation
+        {
+            get
+            {
+                return _appSettings?.StationInformation;
+            }
         }
 
         /// <summary>
-        /// Get status
+        /// Bicing Controller
         /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        public async Task<IActionResult> GetStatus()
+        /// <param name="mediator"></param>
+        /// <param name="appSettings"></param>
+        public BicingController(IMediator mediator, AppSettings appSettings)
+        {
+            _mediator = mediator;
+            _appSettings = appSettings;
+        }
+
+        /// <summary>
+        /// Get Status information of all stations
+        /// </summary>
+        [HttpGet("Status")]
+        public async Task<ActionResult<StatusRoot>> GetStatus()
         {
             try
             {
-                var httpcient = _httpClientFactory.CreateClient();
-                var response = await httpcient.GetStringAsync(APIURL);
-
-                var myDeserializedClass = JsonConvert.DeserializeObject<Root>(response);
-
-                return Ok(response);
+                var response = _mediator.Send(new StatusMessage(ApiUrlStatus));
+                var statusResult = new Result<StatusRoot>(response.Result);
+                return Ok(statusResult.ResultData);
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Error getting status {ex.Message}");
+                return StatusCode((int)HttpStatusCode.InternalServerError, $"Error getting status {ex.Message}");
             }
+        }
 
+        /// <summary>
+        /// Get stations information of all stations
+        /// </summary>
+        /// <returns></returns>
+        /// </summary>
+        [HttpGet("Station")]
+        public async Task<ActionResult<StationRoot>> GetStation()
+        {
+            try
+            {
+                var response = _mediator.Send(new StationMessage(ApiUrlStation));
+                var statusResult = new Result<StationRoot>(response.Result);
+                return Ok(statusResult.ResultData);                
+            }
+            catch (Exception ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, $"Error getting status {ex.Message}");
+            }
         }
     }
 }
