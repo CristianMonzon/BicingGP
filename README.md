@@ -6,6 +6,9 @@ Bicing GP es una aplicación que muestra estadísticas del servicio [Bicing](htt
 
 La aplicación consiste en un robot que obtiene las estádisticas de cada estación cada cierto período de tiempo.
 
+### Token de uso
+
+En el fichero appSettings.json debes indicar tu Token de uso del API OpenData. Consigue tu token en esta página [https://opendata-ajuntament.barcelona.cat/es/desenvolupadors] (https://opendata-ajuntament.barcelona.cat/es/desenvolupadors)
 
 ### Código existente
 
@@ -14,4 +17,3 @@ La aplicación se desarrolló inicialmente en ASP.NET 4.7.1. En esta versión es
 ### Enlace 
 
 La aplicación final la puedes ver en el enlace [BicingGP](http://www.gestion-personal.com/bicing)
-
