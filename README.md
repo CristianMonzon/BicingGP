@@ -1,1 +1,17 @@
 # BicingGP
+
+Bicing GP es una aplicación que muestra estadísticas del servicio [Bicing](https://bicing.barcelona/mapa-de-disponibilitat) de alquiler de bicicletas en Barcelona.
+
+### Robot BicingGP
+
+La aplicación consiste en un robot que obtiene las estádisticas de cada estación cada cierto período de tiempo.
+
+
+### Código existente
+
+La aplicación se desarrolló inicialmente en ASP.NET 4.7.1. En esta versión estoy desarrollando una WebAPI en .NET Core para obtener los datos de las estaciones y los estados de cada anclaje en cada estación.
+
+### Enlace 
+
+La aplicación final la puedes ver en el enlace [BicingGP](http://www.gestion-personal.com/bicing)
+
