@@ -1,3 +1,5 @@
+using MediatR;
+using Microsoft.AspNetCore.Hosting;
 using WebApiBicingGP.Manager;
 
 namespace WebApiBicingGP
@@ -16,8 +18,11 @@ namespace WebApiBicingGP
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            builder.Services.AddMediatR(c => c.RegisterServicesFromAssembly(typeof(BicingGPApplication.MediatR.StationMessage).Assembly));                      
 
+            builder.Services.AddMediatR(c => c.AsScoped(), typeof(BicingGPApplication.MediatR.StationMessage).Assembly);
+            //builder.Services.AddMediatR(c => c.RegisterServicesFromAssembly(typeof(BicingGPApplication.MediatR.StationMessage).Assembly));
+
+            
             InjectionDependencies(builder);
 
             var app = builder.Build();

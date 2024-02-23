@@ -1,6 +1,7 @@
 ﻿using BicingGPApplication.Domain.StationJson;
 using MediatR;
 using Newtonsoft.Json;
+using System.Net.Http.Headers;
 
 namespace BicingGPApplication.MediatR
 {
@@ -16,7 +17,11 @@ namespace BicingGPApplication.MediatR
         public Task<StationRoot> Handle(StationMessage request, CancellationToken cancellationToken)
         {
             var httpcient = _httpClientFactory.CreateClient();
-            var response = httpcient.GetStringAsync(request.Url);
+            //httpcient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Authorization", request.Token);
+
+            httpcient.DefaultRequestHeaders.Authorization= new AuthenticationHeaderValue(request.Token);
+
+            var response = httpcient.GetStringAsync(request.Url);            
             var station = JsonConvert.DeserializeObject<StationRoot>(response.Result);
             return Task.FromResult(station);
         }

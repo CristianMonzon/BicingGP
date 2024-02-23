@@ -32,6 +32,14 @@ namespace WebApiBicingGP.Controllers
             }
         }
 
+        private string? Token
+        {
+            get
+            {
+                return _appSettings?.Token;
+            }
+        }
+        
         /// <summary>
         /// Bicing Controller
         /// </summary>
@@ -51,7 +59,7 @@ namespace WebApiBicingGP.Controllers
         {
             try
             {
-                var response = _mediator.Send(new StatusMessage(ApiUrlStatus));
+                var response = _mediator.Send(new StatusMessage(ApiUrlStatus,Token));
                 var statusResult = new Result<StatusRoot>(response.Result);
                 return Ok(statusResult.ResultData);
             }
@@ -71,7 +79,7 @@ namespace WebApiBicingGP.Controllers
         {
             try
             {
-                var response = _mediator.Send(new StationMessage(ApiUrlStation));
+                var response = _mediator.Send(new StationMessage(ApiUrlStation, Token));
                 var statusResult = new Result<StationRoot>(response.Result);
                 return Ok(statusResult.ResultData);                
             }
