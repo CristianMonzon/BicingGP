@@ -22,6 +22,15 @@ namespace WebApiBicingGP.Manager
             }
         }
 
+        public string? Token
+        {
+            get
+            {
+                return _configuration?["Url:Token"];
+            }
+        }
+        
+
         public AppSettings(IConfiguration configuration)
         {
             _configuration = configuration;
