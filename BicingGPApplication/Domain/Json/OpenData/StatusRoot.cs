@@ -1,26 +1,18 @@
-namespace BicingGPApplication.Domain.StatusJson
+namespace BicingGPApplication.Domain.Json.OpenDataStatus
 {
-
-    public class StatusRoot
+    public class OpenData
     {
         public int last_updated { get; set; }
         public int ttl { get; set; }
-        public DataStatus data { get; set; }
+        public Data data { get; set; }
     }
 
-
-    public class DataStatus
+    public class Data
     {
-        public List<StatusStation> stations { get; set; }
+        public List<Station> stations { get; set; }
     }
 
-    public class NumBikesAvailableTypes
-    {
-        public int mechanical { get; set; }
-        public int ebike { get; set; }
-    }
-
-        public class StatusStation
+    public class Station
     {
         public int station_id { get; set; }
         public int num_bikes_available { get; set; }
@@ -35,4 +27,9 @@ namespace BicingGPApplication.Domain.StatusJson
         public object traffic { get; set; }
     }
 
+    public class NumBikesAvailableTypes
+    {
+        public int mechanical { get; set; }
+        public int ebike { get; set; }
+    }
 }

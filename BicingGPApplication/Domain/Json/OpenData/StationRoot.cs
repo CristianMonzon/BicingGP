@@ -1,18 +1,17 @@
-﻿namespace BicingGPApplication.Domain.StationJson
+﻿namespace BicingGPApplication.Domain.Json.OpenDataStation
 {
-    public class StationRoot
+    public class OpenData
     {
         public int last_updated { get; set; }
         public int ttl { get; set; }
-
-        public DataStation data { get; set; }
+        public Data data { get; set; }
     }
 
-    public class DataStation
+    public class Data
     {
         public List<Station> stations { get; set; }
     }
-    
+
     public class Station
     {
         public int station_id { get; set; }

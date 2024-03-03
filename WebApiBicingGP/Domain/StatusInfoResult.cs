@@ -5,5 +5,7 @@ namespace WebApiBicingGP.Domain
         public StatusInfoResult(StationInfo data) : base(data)
         {
         }
+
+
     }
 }
