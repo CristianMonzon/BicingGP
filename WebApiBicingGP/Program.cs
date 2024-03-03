@@ -1,5 +1,7 @@
+using BicingGPApplication.MediatR.CityBik.Station;
+using BicingGPApplication.MediatR.CityBik.Status;
+using BicingGPApplication.MediatR.OpenData.Station;
 using MediatR;
-using Microsoft.AspNetCore.Hosting;
 using WebApiBicingGP.Manager;
 
 namespace WebApiBicingGP
@@ -18,10 +20,11 @@ namespace WebApiBicingGP
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddMediatR(c => c.AsScoped(), typeof(StationInputDTO).Assembly);
 
-            builder.Services.AddMediatR(c => c.AsScoped(), typeof(BicingGPApplication.MediatR.StationMessage).Assembly);
-            //builder.Services.AddMediatR(c => c.RegisterServicesFromAssembly(typeof(BicingGPApplication.MediatR.StationMessage).Assembly));
+            builder.Services.AddMediatR(c => c.AsScoped(), typeof(OpenDataStationInputDTO).Assembly);
 
+            builder.Services.AddMediatR(c => c.AsScoped(), typeof(StatusInputDTO).Assembly);
             
             InjectionDependencies(builder);
 
