@@ -18,3 +18,5 @@ Consigue tu token en esta página [https://opendata-ajuntament.barcelona.cat/es/
 ### Enlace 
 
 La aplicación final la puedes ver en el enlace [BicingGP](http://www.gestion-personal.com/bicing)
+
+También he desarollado el mismo proyecto para el sistema de bicicletas [Velib en Paris](http://www.gestion-personal.com/velib) y para la [ciudad de Rosario, Argentina](http://www.gestion-personal.com/mibicitubici)
