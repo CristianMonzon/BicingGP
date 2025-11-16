@@ -7,10 +7,10 @@ namespace BicingGPApplication.MediatR.CityBik.Status
     {
         public IProvider Provider { get; private set; }
 
-
         public StatusInputDTO(IProvider provider)
         {
             Provider = provider;
         }
+
     }
 }

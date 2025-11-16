@@ -1,11 +1,11 @@
-﻿using BicingGPApplication.MediatR.CityBik.Station;
+﻿using BicingGPApplication.MediatR.CityBik.Station.Paris;
 using BicingGPApplication.MediatR.CityBik.Status;
 
 namespace BicingGPApplication.Domain.Json.ParisCityBik
 {
     internal static class DtoExtended
     {
-        internal static List<StatusOutDTO> ToStatusOutDTOs(this Domain.Json.ParisCityBik.Root root)
+        internal static List<StatusOutDTO> ToStatusOutDTOs(this Domain.Json.ParisCityBik.ParisCityBikeRootGeneric root)
         {
             return root.network.stations.Select(c => c.ToStatusOutDTO()).ToList();
         }
@@ -14,7 +14,7 @@ namespace BicingGPApplication.Domain.Json.ParisCityBik
         {
             return new StatusOutDTO()
             {
-                StationId = station.extra.uid.ToString(),
+                StationId = station.extra.uid,
                 Latitude = station.latitude,
                 Longitude = station.longitude,
                 FreBikes = station.free_bikes,
@@ -23,23 +23,37 @@ namespace BicingGPApplication.Domain.Json.ParisCityBik
                 EmptySlots = station.empty_slots,
             };
         }
-        
-        internal static List<StationOutDTO> ToStationOutDTOs(this Domain.Json.ParisCityBik.Root root)
+
+        internal static List<StationOutDTOParis> ToStationOutDTO(this Domain.Json.ParisCityBik.ParisCityBikeRootGeneric root)
         {
-            return root.network.stations.Select(c => c.ToStationOutDTO()).ToList();            
+            return root.network.stations.Select(c => c.ToStationOutDTOParis()).ToList();
         }
 
-        internal static StationOutDTO ToStationOutDTO(this Domain.Json.ParisCityBik.Station station)
+
+        internal static StationOutDTOParis ToStationOutDTOParis(this Domain.Json.ParisCityBik.Station station)
         {
-            return new StationOutDTO()
+            return new StationOutDTOParis()
             {
-                StationId = station.extra.uid.ToString(),
+
+                Id = station!.extra!.uid,
+                Name = station.name,
                 Latitude = station.latitude,
                 Longitude = station.longitude,
-                FreBikes = station.free_bikes,                 
-                Name = station.name,
                 Timestamp = station.timestamp,
-                EmptySlots = station.empty_slots,                
+
+                EmptySlots = station.empty_slots,
+
+                LastUpdate = station.extra.last_updated,
+                Renting = station.extra.renting,
+                Returning = station.extra.returning,
+                PaymentTerminal = station.extra.paymentterminal,
+
+                Banking = station.extra.banking,
+                ElectricBikes = station.extra.ebikes,
+                FreeBikes = station.free_bikes,
+                NormalBikes = station.extra.normal_bikes,
+                Slots = station.extra.slots,
+                Virtual = station.extra.@virtual
             };
         }
     }

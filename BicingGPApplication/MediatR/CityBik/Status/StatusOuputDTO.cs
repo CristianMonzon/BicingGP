@@ -10,10 +10,10 @@
         public int? NormalBikes { get; set; }
 
         public string? StationId { get; set; }
-        public double? Latitude { get; set; }
-        public double? Longitude { get; set; }
+        public string? Latitude { get; set; }
+        public string? Longitude { get; set; }
 
         public string? Name { get; set; }
-        public DateTime? Timestamp { get; set; }
+        public string? Timestamp { get; set; }
     }
 }

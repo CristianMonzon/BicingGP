@@ -7,7 +7,6 @@ namespace BicingGPApplication.MediatR.OpenData.Status
     {
         public ProviderOpenData Provider { get; private set; }
 
-
         public OpenDataStatusInputDTO(ProviderOpenData provider)
         {
             Provider = provider;
