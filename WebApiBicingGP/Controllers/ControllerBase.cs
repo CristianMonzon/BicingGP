@@ -11,4 +11,13 @@ namespace WebApiBicingGP.Controllers
         protected IMediator _mediator;
         protected IProvider _provider;
     }
+
+    public abstract class ControllerBaseGeneric<TProviderGeneric, TProvider, TDTO> : Controller 
+        where TProviderGeneric : IProviderGeneric<TDTO> 
+    {
+        protected IHttpClientFactory _httpClientFactoryGeneric;
+        protected IMediator _mediator;
+        protected TProvider _provider;
+        protected IProviderGeneric<TDTO> _providerGeneric;
+    }
 }

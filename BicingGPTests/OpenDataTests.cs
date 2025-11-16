@@ -1,7 +1,8 @@
 using BicingGPApplication.Entities;
-using BicingGPApplication.Services;
+using BicingGPApplication.Services.Status;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
+using NUnit.Framework;
 
 namespace BicingGPTests
 {

@@ -1,7 +1,5 @@
-﻿using BicingGPApplication.MediatR.CityBik.Station;
-using BicingGPApplication.Services;
+﻿using BicingGPApplication.Services.Station;
 using MediatR;
-using Newtonsoft.Json;
 
 namespace BicingGPApplication.MediatR.OpenData.Station
 {

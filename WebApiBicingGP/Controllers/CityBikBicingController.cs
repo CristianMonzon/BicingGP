@@ -1,5 +1,5 @@
 ﻿using BicingGPApplication.Entities;
-using BicingGPApplication.MediatR.CityBik.Station;
+using BicingGPApplication.MediatR.CityBik.Station.Barcelona;
 using BicingGPApplication.MediatR.CityBik.Status;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -12,12 +12,14 @@ namespace WebApiBicingGP.Controllers
     [ApiController]
     [Route("api/v1/[Controller]")]
 
-    public class CityBikBicingController : ControllerBase
-    {                
-        public CityBikBicingController(IMediator mediator, AppSettings appSettings)
+
+    public class CityBikBicingController : ControllerBaseGeneric<ProviderCityBikBarcelonaGenerico, ProviderCityBikBarcelona, StationOutDTOBarcelona>
+    {
+        public CityBikBicingController(IMediator mediator, ProvidersSettings bikingProviderSettings)
         {
             _mediator = mediator;
-            _provider = appSettings.ProviderCityBarcelona;
+            _providerGeneric = bikingProviderSettings.ProviderCityBikBarcelonaGenerico;
+            _provider = bikingProviderSettings.ProviderCityBikBarcelona;
         }
 
         /// <summary>
@@ -44,12 +46,12 @@ namespace WebApiBicingGP.Controllers
         /// <returns></returns>
         /// </summary>
         [HttpGet("Station")]
-        public async Task<ActionResult<List<StationOutDTO>>> GetStation()
+        public async Task<ActionResult<List<StationOutDTOBarcelona>>> GetStation()
         {
             try
             {            
-                var response = await _mediator.Send(new StationInputDTO(_provider));                
-                var stationResult = new Result<List<StationOutDTO>>(response);
+                var response = await _mediator.Send(new StationInputDTOBarcelona(_providerGeneric));                
+                var stationResult = new Result<List<StationOutDTOBarcelona>>(response);
                 return Ok(stationResult.ResultData);                
             }
             catch (Exception ex)

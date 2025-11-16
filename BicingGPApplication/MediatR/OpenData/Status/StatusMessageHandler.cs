@@ -1,4 +1,4 @@
-﻿using BicingGPApplication.Services;
+﻿using BicingGPApplication.Services.Status;
 using MediatR;
 
 namespace BicingGPApplication.MediatR.OpenData.Status

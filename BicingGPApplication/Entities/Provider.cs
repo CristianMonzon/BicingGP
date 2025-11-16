@@ -1,13 +1,14 @@
-﻿using Newtonsoft.Json;
+﻿using BicingGPApplication.MediatR.CityBik.Status;
+using Newtonsoft.Json;
 
 namespace BicingGPApplication.Entities
 {
 
-    public abstract class Provider
+    public abstract class Provider 
     {
-        public string Token { get; set; }
         public string UrlGetStation { get; set; }
         public string UrlGetStatus { get; set; }
+        public string Token { get; set; }
 
         public bool HasToken
         {
@@ -16,7 +17,7 @@ namespace BicingGPApplication.Entities
                 return !String.IsNullOrEmpty(Token);
             }
         }
-
+               
         public T? GenericConvert<T>(string json) where T : class
         {
             if (string.IsNullOrEmpty(json))
