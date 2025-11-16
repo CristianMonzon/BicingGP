@@ -1,6 +1,8 @@
 using BicingGPApplication.Entities;
+using BicingGPApplication.Services.Status;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
+using NUnit.Framework;
 
 namespace BicingGPTests
 {
@@ -76,7 +78,7 @@ namespace BicingGPTests
         {
             //Arrange
             Setup();
-            IProvider provider = new ProviderCityBikParisGenerico()
+            IProvider provider = new ProviderCityBikParis()
             {
                 UrlGetStatus = "http://api.citybik.es/v2/networks/velib"
             };
