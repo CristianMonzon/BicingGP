@@ -1,4 +1,5 @@
 using BicingGPApplication.Entities;
+using BicingGPApplication.Services.Station;
 using BicingGPApplication.Services.Status;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,7 +20,7 @@ namespace BicingGPTests
             provider = new ProviderOpenData();
             provider.UrlGetStatus = "https://opendata-ajuntament.barcelona.cat/data/ca/dataset/estat-estacions-bicing/resource/1b215493-9e63-4a12-8980-2d7e0fa19f85/download/recurs.json";
             provider.UrlGetStation = "https://opendata-ajuntament.barcelona.cat/data/ca/dataset/estat-estacions-bicing/resource/f60e9291-5aaa-417d-9b91-612a9de800aa/download/recurs.json";
-            provider.Token = "---Use your token here--";            
+            provider.Token = "---Use your token here--";
             //Get your token in this page https://opendata-ajuntament.barcelona.cat/es/desenvolupadors
 
             var serviceProvider = new ServiceCollection()
