@@ -1,7 +1,4 @@
-﻿using BicingGPApplication.Domain.Json.RosarioCityBik;
-using BicingGPApplication.Entities;
-
-namespace BicingGPApplication.MediatR.CityBik.Station.Rosario
+﻿namespace BicingGPApplication.MediatR.CityBik.Station.Rosario
 {
     
     public class StationOutDTORosario 

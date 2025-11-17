@@ -1,11 +1,12 @@
-﻿using BicingGPApplication.Entities;
+﻿using BicingGPApplication.Entities.CityBik;
+using BicingGPApplication.Entities.OpenData;
 
 namespace WebApiBicingGP.Manager
 {
     public class ProvidersSettings
     {
         private readonly IConfiguration _configuration;
-        private readonly IProviderFactory _factory;
+        private readonly IWebProviderFactory _factory;
 
         public ProviderOpenData ProviderFactoryOpenDataBarcelona { get; set; } = new ProviderOpenData();
 
@@ -17,31 +18,31 @@ namespace WebApiBicingGP.Manager
         public ProviderCityBikRosarioGenerico ProviderCityBikRosarioGenerico { get; set; } = new ProviderCityBikRosarioGenerico();
         public ProviderCityBikParisGenerico ProviderCityBikParisGenerico { get; set; } = new ProviderCityBikParisGenerico();
 
-        public ProvidersSettings(IConfiguration configuration, IProviderFactory factory)
+        public ProvidersSettings(IConfiguration configuration, IWebProviderFactory factory)
         {
             _configuration = configuration;
             _factory = factory;
 
-            var openDataConfig = new ProviderConfig
+            var openDataConfig = new WebProviderConfig
             {
                 StatusInformation = _configuration["OpenDataBarcelona:StatusInformation"],
                 StationInformation = _configuration["OpenDataBarcelona:StationInformation"],
                 Token = _configuration["OpenDataBarcelona:Token"]
             };
 
-            var cityBikBarcelonaConfig = new ProviderConfig
+            var cityBikBarcelonaConfig = new WebProviderConfig
             {
                 StatusInformation = _configuration["CityBikBarcelona:StatusInformation"],
                 StationInformation = _configuration["CityBikBarcelona:StationInformation"]
             };
 
-            var cityBikRosarioConfig = new ProviderConfig
+            var cityBikRosarioConfig = new WebProviderConfig
             {
                 StatusInformation = _configuration["CityBikRosario:StatusInformation"],
                 StationInformation = _configuration["CityBikRosario:StationInformation"]
             };
 
-            var cityBikVelibConfig = new ProviderConfig
+            var cityBikVelibConfig = new WebProviderConfig
             {
                 StatusInformation = _configuration["CityBikVelib:StatusInformation"],
                 StationInformation = _configuration["CityBikVelib:StationInformation"]

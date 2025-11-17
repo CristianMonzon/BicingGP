@@ -1,16 +1,16 @@
 ﻿using BicingGPApplication.MediatR.CityBik.Station.Rosario;
 using BicingGPApplication.MediatR.CityBik.Status;
 
-namespace BicingGPApplication.Domain.Json.RosarioCityBik
+namespace BicingGPApplication.Domain.Json.CityBk.Rosario
 {
     internal static class DtoExtended
     {
-        internal static List<StatusOutDTO> ToStatusOutDTOs(this Domain.Json.RosarioCityBik.RosarioCityBikeRootGeneric root)
+        internal static List<StatusOutDTO> ToStatusOutDTOs(this RosarioCityBikeRootGeneric root)
         {
             return root!.network!.stations!.Select(c => c.ToStatusOutDTO()).ToList();
         }
 
-        internal static StatusOutDTO ToStatusOutDTO(this Domain.Json.RosarioCityBik.Station station)
+        internal static StatusOutDTO ToStatusOutDTO(this Station station)
         {
             return new StatusOutDTO()
             {
@@ -24,12 +24,12 @@ namespace BicingGPApplication.Domain.Json.RosarioCityBik
             };
         }
 
-        internal static List<StationOutDTORosario> ToStationOutDTO(this Domain.Json.RosarioCityBik.RosarioCityBikeRootGeneric root)
+        internal static List<StationOutDTORosario> ToStationOutDTO(this RosarioCityBikeRootGeneric root)
         {
             return root!.network!.stations!.Select(c => c.ToStationOutDTORosario()).ToList();
         }
 
-        internal static StationOutDTORosario ToStationOutDTORosario(this Domain.Json.RosarioCityBik.Station station)
+        internal static StationOutDTORosario ToStationOutDTORosario(this Station station)
         {
             return new StationOutDTORosario()
             {

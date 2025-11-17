@@ -1,17 +1,17 @@
 ﻿using BicingGPApplication.Entities;
 using System.Security.Principal;
-using static WebApiBicingGP.Manager.ProviderFactory;
+using static WebApiBicingGP.Manager.WebProviderFactory;
 
 namespace WebApiBicingGP.Manager
 {
-    public interface IProviderFactory
+    public interface IWebProviderFactory
     {
-        T CreateProvider<T>(ProviderConfig config) where T : class, new();
+        T CreateProvider<T>(WebProviderConfig config) where T : class, new();
     }
 
-    public class ProviderFactory : IProviderFactory
+    public class WebProviderFactory : IWebProviderFactory
     {
-        public T CreateProvider<T>(ProviderConfig config) where T : class, new()
+        public T CreateProvider<T>(WebProviderConfig config) where T : class, new()
         {
             var provider = new T();
             var providerType = typeof(T);

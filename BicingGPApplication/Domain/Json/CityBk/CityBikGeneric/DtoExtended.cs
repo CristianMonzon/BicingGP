@@ -1,6 +1,6 @@
 ﻿using BicingGPApplication.MediatR.CityBik.Status;
 
-namespace BicingGPApplication.Domain.Json.CityBikGeneric
+namespace BicingGPApplication.Domain.Json.CityBk.Generic
 {
     internal static class GenericDtoExtended
     {

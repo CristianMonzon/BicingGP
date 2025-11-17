@@ -1,15 +1,10 @@
-﻿using BicingGPApplication.Domain.Json.RosarioCityBik;
+﻿using BicingGPApplication.Domain.Json.CityBk.Rosario;
 using BicingGPApplication.MediatR.CityBik.Station.Rosario;
 using BicingGPApplication.MediatR.CityBik.Status;
 
-namespace BicingGPApplication.Entities
+namespace BicingGPApplication.Entities.CityBik
 {
-
-    public class ProviderCityBikRosario : GenericProvider, IProvider
-    {        
-    }
-
-    public class ProviderCityBikRosarioGenerico : Provider, IProviderGeneric<BicingGPApplication.MediatR.CityBik.Station.Rosario.StationOutDTORosario>
+    public class ProviderCityBikRosarioGenerico : Provider, IProviderGeneric<StationOutDTORosario>
     {
         public List<StationOutDTORosario> ConvertToStationOutDTOGeneric(string response)
         {

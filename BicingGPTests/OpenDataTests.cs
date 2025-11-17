@@ -1,4 +1,4 @@
-using BicingGPApplication.Entities;
+using BicingGPApplication.Entities.OpenData;
 using BicingGPApplication.Services.Station;
 using BicingGPApplication.Services.Status;
 using FluentAssertions;
