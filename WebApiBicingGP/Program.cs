@@ -1,4 +1,4 @@
-using BicingGPApplication.MediatR.CityBik.Status;
+using BicingGP.Application.MediatR.CityBik.Status;
 using MediatR;
 using WebApiBicingGP.Manager;
 
@@ -18,10 +18,10 @@ namespace WebApiBicingGP
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            builder.Services.AddMediatR(c => c.AsScoped(), typeof(BicingGPApplication.MediatR.CityBik.Station.Barcelona.StationInputDTOBarcelona).Assembly);
-            builder.Services.AddMediatR(c => c.AsScoped(), typeof(BicingGPApplication.MediatR.CityBik.Station.Paris.StationInputDTOParis).Assembly);
-            builder.Services.AddMediatR(c => c.AsScoped(), typeof(BicingGPApplication.MediatR.CityBik.Station.Rosario.StationInputDTORosario).Assembly);
-            builder.Services.AddMediatR(c => c.AsScoped(), typeof(BicingGPApplication.MediatR.OpenData.Station.OpenDataStationInputDTO).Assembly);
+            builder.Services.AddMediatR(c => c.AsScoped(), typeof(BicingGP.Application.MediatR.CityBik.Station.Barcelona.StationInputDTOBarcelona).Assembly);
+            builder.Services.AddMediatR(c => c.AsScoped(), typeof(BicingGP.Application.MediatR.CityBik.Station.Paris.StationInputDTOParis).Assembly);
+            builder.Services.AddMediatR(c => c.AsScoped(), typeof(BicingGP.Application.MediatR.CityBik.Station.Rosario.StationInputDTORosario).Assembly);
+            builder.Services.AddMediatR(c => c.AsScoped(), typeof(BicingGP.Application.MediatR.OpenData.Station.OpenDataStationInputDTO).Assembly);
             builder.Services.AddMediatR(c => c.AsScoped(), typeof(StatusInputDTO).Assembly);
 
             

@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BicingGPApplication\BicingGPApplication.csproj" />
+    <ProjectReference Include="..\BicingGP.Application\BicingGP.Application.csproj" />    
   </ItemGroup>
 
 </Project>
