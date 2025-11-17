@@ -1,8 +1,8 @@
-﻿namespace BicingGPApplication.Domain.Json.OpenDataStation
+﻿namespace BicingGPApplication.Domain.Json.OpenData.Station
 {
-    public class OpenData
+    public class OpenDataStation
     {
-        public int last_updated { get; set; }        
+        public int? last_updated { get; set; }        
         public Data? data { get; set; }
     }
 
@@ -13,7 +13,7 @@
 
     public class Station
     {
-        public int station_id { get; set; }
+        public int? station_id { get; set; }
         public string? name { get; set; }
         public string? physical_configuration { get; set; }
         public double lat { get; set; }

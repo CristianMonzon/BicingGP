@@ -1,4 +1,4 @@
-﻿using BicingGPApplication.Entities;
+﻿using BicingGPApplication.Providers;
 using BicingGPApplication.MediatR.CityBik.Status;
 using System.Net.Http.Headers;
 

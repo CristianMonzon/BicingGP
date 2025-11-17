@@ -1,7 +1,6 @@
-﻿using BicingGPApplication.MediatR.CityBik.Station.Barcelona;
-using BicingGPApplication.MediatR.CityBik.Status;
+﻿using BicingGPApplication.MediatR.CityBik.Status;
 
-namespace BicingGPApplication.Entities
+namespace BicingGPApplication.Providers
 {
     
     public interface IProviderGeneric<T>

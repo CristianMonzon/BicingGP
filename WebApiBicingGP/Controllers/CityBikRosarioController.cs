@@ -1,4 +1,4 @@
-﻿using BicingGPApplication.Entities.CityBik;
+﻿using BicingGPApplication.Providers.CityBik;
 using BicingGPApplication.MediatR.CityBik.Station.Rosario;
 using BicingGPApplication.MediatR.CityBik.Status;
 using MediatR;
@@ -11,13 +11,13 @@ namespace WebApiBicingGP.Controllers
 {
     [ApiController]
     [Route("api/v1/[Controller]")]
-    public class CityBikRosarioController : ControllerBaseGeneric<ProviderCityBikRosarioGenerico, ProviderCityBikRosario, StationOutDTORosario>
+    public class CityBikRosarioController : ControllerBaseGeneric<ProviderCityBikRosario, StationOutDTORosario>
     {
-        public CityBikRosarioController(IMediator mediator, ProvidersSettings bikingProviderSettings)
+        public CityBikRosarioController(IMediator mediator, DataProvidersSettings providerSettings)
         {
             _mediator = mediator;
-            _providerGeneric = bikingProviderSettings.ProviderCityBikRosarioGenerico;
-            _provider = bikingProviderSettings.ProviderCityBikRosario;
+            _providerGeneric = providerSettings.ProviderCityBikRosarioGenerico;
+            _provider = providerSettings.ProviderCityBikRosario;
         }
 
         /// <summary>

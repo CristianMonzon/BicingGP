@@ -1,4 +1,4 @@
-﻿using BicingGPApplication.Entities.OpenData;
+﻿using BicingGPApplication.Providers.OpenData;
 using BicingGPApplication.MediatR.OpenData.Station;
 using System.Net.Http.Headers;
 
@@ -19,7 +19,7 @@ namespace BicingGPApplication.Services.Station
         public async Task<List<OpenDataStationOutDTO>> GetStations()
         {
             var httpcient = _httpClientFactory.CreateClient();
-            httpcient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(_providerOpenData.Token);
+            if (_providerOpenData.Token != null) httpcient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(_providerOpenData.Token);
 
             var response = await httpcient.GetStringAsync(_providerOpenData.UrlGetStation);
             var result = _providerOpenData.ConvertToStationOutDTO(response);

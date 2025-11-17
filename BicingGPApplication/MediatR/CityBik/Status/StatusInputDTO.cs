@@ -1,4 +1,4 @@
-﻿using BicingGPApplication.Entities;
+﻿using BicingGPApplication.Providers;
 using MediatR;
 
 namespace BicingGPApplication.MediatR.CityBik.Status

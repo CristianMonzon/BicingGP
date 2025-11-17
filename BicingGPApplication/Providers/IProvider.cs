@@ -1,7 +1,6 @@
-﻿using BicingGPApplication.MediatR.CityBik.Station.Barcelona;
-using BicingGPApplication.MediatR.CityBik.Status;
+﻿using BicingGPApplication.MediatR.CityBik.Status;
 
-namespace BicingGPApplication.Entities
+namespace BicingGPApplication.Providers
 {
     public interface IProvider
     {                
@@ -9,7 +8,7 @@ namespace BicingGPApplication.Entities
 
         string UrlGetStation { get; set; }
         string UrlGetStatus { get; set; }
-        string Token { get; set; }
+        string? Token { get; set; }
 
         bool HasToken { get; }
     }

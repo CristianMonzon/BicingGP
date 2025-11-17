@@ -1,4 +1,4 @@
-﻿using BicingGPApplication.Entities;
+﻿using BicingGPApplication.Providers;
 
 namespace WebApiBicingGP.Manager
 {

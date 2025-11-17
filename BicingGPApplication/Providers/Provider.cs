@@ -1,7 +1,6 @@
-﻿using BicingGPApplication.MediatR.CityBik.Status;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
-namespace BicingGPApplication.Entities
+namespace BicingGPApplication.Providers
 {
 
     public abstract class Provider 

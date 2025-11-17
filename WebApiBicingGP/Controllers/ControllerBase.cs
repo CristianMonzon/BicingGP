@@ -1,4 +1,4 @@
-﻿using BicingGPApplication.Entities;
+﻿using BicingGPApplication.Providers;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,8 +12,7 @@ namespace WebApiBicingGP.Controllers
         protected IProvider _provider;
     }
 
-    public abstract class ControllerBaseGeneric<TProviderGeneric, TProvider, TDTO> : Controller 
-        where TProviderGeneric : IProviderGeneric<TDTO> 
+    public abstract class ControllerBaseGeneric<TProvider, TDTO> : Controller         
     {
         protected IHttpClientFactory _httpClientFactoryGeneric;
         protected IMediator _mediator;

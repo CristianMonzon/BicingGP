@@ -1,19 +1,15 @@
-﻿using BicingGPApplication.MediatR.OpenData.Station;
-using BicingGPApplication.MediatR.OpenData.Status;
-
-namespace BicingGPApplication.Domain.Json
+﻿namespace BicingGPApplication.Domain.Json.OpenData
 {
     public static class DtoExtended
     {
-        public static List<OpenDataStatusOutDTO> ToStatusOutDTOs(this BicingGPApplication.Domain.Json.OpenDataStatus.Data openData)
-        {
-            return openData.stations.Select(c => c.ToStatusOutDTO()).ToList();
+        public static List<MediatR.OpenData.Status.OpenDataStatusOutDTO> ToStatusOutDTOs(this Status.OpenDataStatus openDataStatus)
+        {            
+            return openDataStatus!.data!.stations!.Select(c => c.ToStatusOutDTO()).ToList();
         }
 
-
-        public static OpenDataStatusOutDTO ToStatusOutDTO(this BicingGPApplication.Domain.Json.OpenDataStatus.Station station)
+        public static MediatR.OpenData.Status.OpenDataStatusOutDTO ToStatusOutDTO(this Status.Station station)
         {
-            return new OpenDataStatusOutDTO()
+            return new MediatR.OpenData.Status.OpenDataStatusOutDTO()
             {
                 StationId = station.station_id,
                 FreBikes = station.num_bikes_available,
@@ -30,18 +26,16 @@ namespace BicingGPApplication.Domain.Json
                 IsRenting = station.is_renting,
                 IsReturning = station.is_returning
             };
-
         }
 
-
-        public static List<OpenDataStationOutDTO> ToStationOutDTOs(this BicingGPApplication.Domain.Json.OpenDataStation.Data openData)
+        public static List<MediatR.OpenData.Station.OpenDataStationOutDTO> ToStationOutDTOs(this Station.Data openData)
         {
-            return openData.stations.Select(c => c.ToStationOutDTO()).ToList();
+            return openData!.stations!.Select(c => c.ToStationOutDTO()).ToList();
         }
 
-        private static OpenDataStationOutDTO ToStationOutDTO(this BicingGPApplication.Domain.Json.OpenDataStation.Station station)
+        private static MediatR.OpenData.Station.OpenDataStationOutDTO ToStationOutDTO(this Station.Station station)
         {
-            return new OpenDataStationOutDTO()
+            return new MediatR.OpenData.Station.OpenDataStationOutDTO()
             {
                 StationId = station.station_id.ToString(),
                 Name = station.name,
@@ -58,4 +52,3 @@ namespace BicingGPApplication.Domain.Json
         }
     }
 }
-

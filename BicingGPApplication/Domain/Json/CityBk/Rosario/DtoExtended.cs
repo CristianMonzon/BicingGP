@@ -5,7 +5,7 @@ namespace BicingGPApplication.Domain.Json.CityBk.Rosario
 {
     internal static class DtoExtended
     {
-        internal static List<StatusOutDTO> ToStatusOutDTOs(this RosarioCityBikeRootGeneric root)
+        internal static List<StatusOutDTO> ToStatusOutDTOs(this CityBikeRootGeneric root)
         {
             return root!.network!.stations!.Select(c => c.ToStatusOutDTO()).ToList();
         }
@@ -24,7 +24,7 @@ namespace BicingGPApplication.Domain.Json.CityBk.Rosario
             };
         }
 
-        internal static List<StationOutDTORosario> ToStationOutDTO(this RosarioCityBikeRootGeneric root)
+        internal static List<StationOutDTORosario> ToStationOutDTO(this CityBikeRootGeneric root)
         {
             return root!.network!.stations!.Select(c => c.ToStationOutDTORosario()).ToList();
         }

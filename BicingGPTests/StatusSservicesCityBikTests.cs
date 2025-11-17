@@ -1,5 +1,5 @@
-using BicingGPApplication.Entities;
-using BicingGPApplication.Entities.CityBik;
+using BicingGPApplication.Providers;
+using BicingGPApplication.Providers.CityBik;
 using BicingGPApplication.Services.Status;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
