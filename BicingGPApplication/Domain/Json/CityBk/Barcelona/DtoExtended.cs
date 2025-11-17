@@ -1,16 +1,16 @@
 ﻿using BicingGPApplication.MediatR.CityBik.Station.Barcelona;
 using BicingGPApplication.MediatR.CityBik.Status;
 
-namespace BicingGPApplication.Domain.Json.BarcelonaCityBik
+namespace BicingGPApplication.Domain.Json.CityBk.Barcelona
 {
     internal static class DtoExtended
     {
-        internal static List<StatusOutDTO> ToStatusOutDTOs(this Domain.Json.BarcelonaCityBik.BarcelonaCityBikeRootGeneric root)
+        internal static List<StatusOutDTO> ToStatusOutDTOs(this BarcelonaCityBikeRootGeneric root)
         {
             return root!.network!.stations!.Select(c => c.ToStatusOutDTO()).ToList();
         }
 
-        internal static StatusOutDTO ToStatusOutDTO(this Domain.Json.BarcelonaCityBik.Station station)
+        internal static StatusOutDTO ToStatusOutDTO(this Station station)
         {
             return new StatusOutDTO()
             {
@@ -24,12 +24,12 @@ namespace BicingGPApplication.Domain.Json.BarcelonaCityBik
             };
         }
 
-        internal static List<StationOutDTOBarcelona> ToStationOutDTO(this Domain.Json.BarcelonaCityBik.BarcelonaCityBikeRootGeneric root)
+        internal static List<StationOutDTOBarcelona> ToStationOutDTO(this BarcelonaCityBikeRootGeneric root)
         {
             return root!.network!.stations!.Select(c => c.ToStationOutDTOBarcelona()).ToList();
         }
 
-        internal static StationOutDTOBarcelona ToStationOutDTOBarcelona(this Domain.Json.BarcelonaCityBik.Station station)
+        internal static StationOutDTOBarcelona ToStationOutDTOBarcelona(this Station station)
         {
             return new StationOutDTOBarcelona()
             {

@@ -1,4 +1,4 @@
-using BicingGPApplication.Entities;
+using BicingGPApplication.Entities.OpenData;
 using BicingGPApplication.MediatR.OpenData.Station;
 using BicingGPApplication.MediatR.OpenData.Status;
 using MediatR;

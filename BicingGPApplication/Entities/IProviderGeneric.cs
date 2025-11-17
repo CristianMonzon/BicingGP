@@ -10,7 +10,7 @@ namespace BicingGPApplication.Entities
 
         List<StatusOutDTO> ConvertToStatusOutDTO(string response);
 
-        string Token { get; set; }
+        string? Token { get; set; }
         string UrlGetStation { get; set; }
         string UrlGetStatus { get; set; }
 

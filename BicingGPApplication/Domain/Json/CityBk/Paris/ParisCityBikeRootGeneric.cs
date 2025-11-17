@@ -1,7 +1,7 @@
 ﻿using BicingGPApplication.MediatR.CityBik.Station.Paris;
 using Newtonsoft.Json;
 
-namespace BicingGPApplication.Domain.Json.ParisCityBik
+namespace BicingGPApplication.Domain.Json.CityBk.Paris
 {
     public class Extra
     {

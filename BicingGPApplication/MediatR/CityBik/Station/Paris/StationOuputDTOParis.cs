@@ -1,7 +1,4 @@
-﻿using BicingGPApplication.Domain.Json.ParisCityBik;
-using BicingGPApplication.Entities;
-
-namespace BicingGPApplication.MediatR.CityBik.Station.Paris
+﻿namespace BicingGPApplication.MediatR.CityBik.Station.Paris
 {
     
     public class StationOutDTOParis

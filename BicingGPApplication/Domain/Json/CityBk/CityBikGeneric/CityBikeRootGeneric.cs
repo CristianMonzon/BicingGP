@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace BicingGPApplication.Domain.Json.CityBikGeneric
+namespace BicingGPApplication.Domain.Json.CityBk.Generic
 {
     public class Extra
     {

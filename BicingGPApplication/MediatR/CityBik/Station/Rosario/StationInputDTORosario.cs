@@ -1,5 +1,4 @@
 ﻿using BicingGPApplication.Entities;
-using BicingGPApplication.MediatR.CityBik.Station.Paris;
 using MediatR;
 
 namespace BicingGPApplication.MediatR.CityBik.Station.Rosario

@@ -55,7 +55,7 @@ namespace WebApiBicingGP
             builder.Services.AddSingleton<IConfiguration>(configuration);
             builder.Services.AddSingleton<AppSettings>(new AppSettings(configuration));
 
-            builder.Services.AddSingleton<IProviderFactory, ProviderFactory>();
+            builder.Services.AddSingleton<IWebProviderFactory, WebProviderFactory>();
             builder.Services.AddSingleton<ProvidersSettings>();
 
             builder.Services.AddHttpClient();

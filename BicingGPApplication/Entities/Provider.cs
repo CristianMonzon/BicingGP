@@ -8,7 +8,7 @@ namespace BicingGPApplication.Entities
     {
         public string UrlGetStation { get; set; }
         public string UrlGetStatus { get; set; }
-        public string Token { get; set; }
+        public string? Token { get; set; }
 
         public bool HasToken
         {
