@@ -1,4 +1,4 @@
-using BicingGPApplication.Entities.OpenData;
+using BicingGPApplication.Providers.OpenData;
 using BicingGPApplication.MediatR.OpenData.Station;
 using BicingGPApplication.MediatR.OpenData.Status;
 using MediatR;
@@ -20,10 +20,10 @@ namespace WebApiBicingGP.Controllers
         /// </summary>
         /// <param name="mediator"></param>
         /// <param name="appSettings"></param>
-        public OpenDataBarcelonaController(IMediator mediator, ProvidersSettings bikingProviderSettings)
+        public OpenDataBarcelonaController(IMediator mediator, DataProvidersSettings providerSettings)
         {
             _mediator = mediator;
-            _provider = bikingProviderSettings.ProviderFactoryOpenDataBarcelona;
+            _provider = providerSettings.ProviderOpenDataBarcelona;
         }
 
         /// <summary>

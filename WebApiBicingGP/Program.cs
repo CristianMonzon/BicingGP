@@ -50,13 +50,14 @@ namespace WebApiBicingGP
             IConfiguration configuration = new ConfigurationBuilder()
                                    .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
                                    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                                   .AddUserSecrets<Program>()
                                    .Build();
            
             builder.Services.AddSingleton<IConfiguration>(configuration);
             builder.Services.AddSingleton<AppSettings>(new AppSettings(configuration));
 
-            builder.Services.AddSingleton<IWebProviderFactory, WebProviderFactory>();
-            builder.Services.AddSingleton<ProvidersSettings>();
+            builder.Services.AddSingleton<IDataProviderFactory, DataProviderFactory>();
+            builder.Services.AddSingleton<DataProvidersSettings>();
 
             builder.Services.AddHttpClient();
         }

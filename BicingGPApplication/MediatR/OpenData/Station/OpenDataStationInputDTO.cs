@@ -1,4 +1,5 @@
-﻿using BicingGPApplication.Entities.OpenData;
+﻿using BicingGPApplication.Providers.OpenData;
+using BicingGPApplication.Providers.OpenData;
 using MediatR;
 
 namespace BicingGPApplication.MediatR.OpenData.Station

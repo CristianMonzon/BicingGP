@@ -1,7 +1,10 @@
-﻿using Newtonsoft.Json;
-
-namespace BicingGPApplication.Domain.Json.CityBk.Generic
+﻿namespace BicingGPDataDomain.CityBik.Generic
 {
+    public class CityBikRootGeneric
+    {
+        public Network network { get; set; }
+    }
+
     public class Extra
     {
         public int ebikes { get; set; }
@@ -30,11 +33,7 @@ namespace BicingGPApplication.Domain.Json.CityBk.Generic
         public List<Station>? stations { get; set; }
     }
 
-    public class CityBikeRootGeneric
-    {
-        public Network network { get; set; }
-    }
-
+   
     public class Station
     {
         public int empty_slots { get; set; }        

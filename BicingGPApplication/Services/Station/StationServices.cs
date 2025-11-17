@@ -1,4 +1,4 @@
-﻿using BicingGPApplication.Entities;
+﻿using BicingGPApplication.Providers;
 using System.Net.Http.Headers;
 
 namespace BicingGPApplication.Services.Station

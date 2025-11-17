@@ -2,6 +2,41 @@
 
 namespace BicingGPApplication.Domain.Json.CityBk.Rosario
 {
+    public class CityBikeRootGeneric
+    {
+        public Network? network { get; set; }
+    }
+
+    public class Network
+    {
+        public string? id { get; set; }
+        public string? name { get; set; }
+        public Location? location { get; set; }
+        public string? href { get; set; }
+        public List<string>? company { get; set; }
+        public string? gbfs_href { get; set; }
+        public List<Station>? stations { get; set; }
+    }
+
+    public class Location
+    {
+        public string? latitude { get; set; }
+        public string? longitude { get; set; }
+        public string? city { get; set; }
+        public string? country { get; set; }
+    }
+
+    public class Station
+    {
+        public string? id { get; set; }
+        public string? name { get; set; }
+        public string? latitude { get; set; }
+        public string? longitude { get; set; }
+        public string? timestamp { get; set; }
+        public int? free_bikes { get; set; }
+        public int? empty_slots { get; set; }
+        public Extra? extra { get; set; }
+    }
 
     public class Extra
     {
@@ -17,41 +52,4 @@ namespace BicingGPApplication.Domain.Json.CityBk.Rosario
         public int? slots { get; set; }
         public bool? @virtual { get; set; }
     }
-
-    public class Location
-    {
-        public string? latitude { get; set; }
-        public string? longitude { get; set; }
-        public string? city { get; set; }
-        public string? country { get; set; }
-    }
-
-    public class Network
-    {
-        public string? id { get; set; }
-        public string? name { get; set; }
-        public Location? location { get; set; }
-        public string? href { get; set; }
-        public List<string>? company { get; set; }
-        public string? gbfs_href { get; set; }
-        public List<Station>? stations { get; set; }
-    }
-
-    public class RosarioCityBikeRootGeneric
-    {
-        public Network? network { get; set; }
-    }
-
-    public class Station
-    {
-        public string? id { get; set; }
-        public string? name { get; set; }
-        public string? latitude { get; set; }
-        public string? longitude { get; set; }
-        public string? timestamp { get; set; }
-        public int? free_bikes { get; set; }
-        public int? empty_slots { get; set; }
-        public Extra? extra { get; set; }
-    }
-
 }

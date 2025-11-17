@@ -1,10 +1,11 @@
 ﻿using BicingGPApplication.MediatR.CityBik.Status;
+using BicingGPDataDomain.CityBik.Generic;
 
-namespace BicingGPApplication.Domain.Json.CityBk.Generic
+namespace BicingGPApplication.Domain.Json.CityBk.CityBikGeneric
 {
     internal static class GenericDtoExtended
     {
-        internal static List<StatusOutDTO> ToStatusOutDTOs(this CityBikeRootGeneric root)
+        internal static List<StatusOutDTO> ToStatusOutDTOs(this CityBikRootGeneric root)
         {
             return root!.network!.stations!.Select(c => c.ToStatusOutDTO()).ToList();
         }
@@ -13,7 +14,7 @@ namespace BicingGPApplication.Domain.Json.CityBk.Generic
         {
             return new StatusOutDTO()
             {
-                StationId = station.extra?.uid.ToString(),
+                StationId = station.extra?.uid,
                 Latitude = station.latitude,
                 Longitude = station.longitude,
                 FreBikes = station.free_bikes,

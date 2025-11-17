@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Domain\Station.cs" />
+    <Compile Remove="Domain\Json\CityBk\Rosario\RosarioCityBikeRootGeneric.cs" />
     <Compile Remove="MediatR\InputDTOBase.cs" />
     <Compile Remove="MediatR\MediaTrMessage.cs" />
     <Compile Remove="Services\OldStationServices.cs" />
@@ -35,6 +35,10 @@
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BicingGPDataDomain\BicingGPDataDomain.csproj" />
   </ItemGroup>
 
 </Project>
