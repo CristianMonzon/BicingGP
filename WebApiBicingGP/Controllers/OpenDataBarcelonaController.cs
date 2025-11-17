@@ -1,6 +1,6 @@
-using BicingGPApplication.Providers.OpenData;
-using BicingGPApplication.MediatR.OpenData.Station;
-using BicingGPApplication.MediatR.OpenData.Status;
+using BicingGP.Application.Providers.OpenData;
+using BicingGP.Application.MediatR.OpenData.Station;
+using BicingGP.Application.MediatR.OpenData.Status;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;

@@ -1,5 +1,5 @@
-﻿using BicingGPApplication.Providers.CityBik;
-using BicingGPApplication.Providers.OpenData;
+﻿using BicingGP.Application.Providers.CityBik;
+using BicingGP.Application.Providers.OpenData;
 
 namespace WebApiBicingGP.Manager
 {

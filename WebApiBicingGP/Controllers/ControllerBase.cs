@@ -1,4 +1,4 @@
-﻿using BicingGPApplication.Providers;
+﻿using BicingGP.Application.Providers;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

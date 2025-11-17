@@ -1,6 +1,6 @@
-﻿using BicingGPApplication.Providers.CityBik;
-using BicingGPApplication.MediatR.CityBik.Station.Paris;
-using BicingGPApplication.MediatR.CityBik.Status;
+﻿using BicingGP.Application.Providers.CityBik;
+using BicingGP.Application.MediatR.CityBik.Station.Paris;
+using BicingGP.Application.MediatR.CityBik.Status;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
