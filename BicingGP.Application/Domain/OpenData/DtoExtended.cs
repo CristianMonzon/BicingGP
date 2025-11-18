@@ -1,13 +1,13 @@
-﻿namespace BicingGP.Application.Domain.Json.OpenData
+﻿namespace BicingGP.Application.Domain.OpenData
 {
     public static class DtoExtended
     {
-        public static List<MediatR.OpenData.Status.OpenDataStatusOutDTO> ToStatusOutDTOs(this Status.OpenDataStatus openDataStatus)
+        public static List<MediatR.OpenData.Status.OpenDataStatusOutDTO> ToStatusOutDTOs(this BicingGP.DataDomain.OpenData.Status.OpenDataRootStatus openDataStatus)
         {            
             return openDataStatus!.data!.stations!.Select(c => c.ToStatusOutDTO()).ToList();
         }
 
-        public static MediatR.OpenData.Status.OpenDataStatusOutDTO ToStatusOutDTO(this Status.Station station)
+        public static MediatR.OpenData.Status.OpenDataStatusOutDTO ToStatusOutDTO(this BicingGP.DataDomain.OpenData.Status.Station station)
         {
             return new MediatR.OpenData.Status.OpenDataStatusOutDTO()
             {
@@ -28,12 +28,12 @@
             };
         }
 
-        public static List<MediatR.OpenData.Station.OpenDataStationOutDTO> ToStationOutDTOs(this Station.Data openData)
+        public static List<MediatR.OpenData.Station.OpenDataStationOutDTO> ToStationOutDTOs(this BicingGP.DataDomain.OpenData.Station.Data openData)
         {
             return openData!.stations!.Select(c => c.ToStationOutDTO()).ToList();
         }
 
-        private static MediatR.OpenData.Station.OpenDataStationOutDTO ToStationOutDTO(this Station.Station station)
+        private static MediatR.OpenData.Station.OpenDataStationOutDTO ToStationOutDTO(this BicingGP.DataDomain.OpenData.Station.Station station)
         {
             return new MediatR.OpenData.Station.OpenDataStationOutDTO()
             {

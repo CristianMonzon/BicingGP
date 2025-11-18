@@ -1,4 +1,4 @@
-﻿using BicingGP.Application.Domain.Json.OpenData;
+﻿using BicingGP.Application.Domain.OpenData;
 using BicingGP.Application.MediatR.OpenData.Station;
 using BicingGP.Application.MediatR.OpenData.Status;
 
@@ -10,13 +10,15 @@ namespace BicingGP.Application.Providers.OpenData
 
         public List<OpenDataStationOutDTO> ConvertToStationOutDTO(string result)
         {
-            var opendataStation =GenericConvert<Domain.Json.OpenData.Station.OpenDataStation>(result);
+            var opendataStation =GenericConvert<BicingGP.DataDomain.OpenData.Station.OpenDataRootStation>(result);
+            
+
             return opendataStation!.data!.ToStationOutDTOs();
         }
 
         public List<OpenDataStatusOutDTO> ConvertToStatusOutDTO(string result)
         {
-            var openDataStatus = GenericConvert<Domain.Json.OpenData.Status.OpenDataStatus>(result);
+            var openDataStatus = GenericConvert<BicingGP.DataDomain.OpenData.Status.OpenDataRootStatus>(result);
             return openDataStatus!.ToStatusOutDTOs();            
         }
     }

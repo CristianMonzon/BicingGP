@@ -1,4 +1,4 @@
-﻿using BicingGP.Application.Domain.Json.CityBk.CityBikGeneric;
+﻿using BicingGP.Application.Domain.CityBk.CityBikGeneric;
 using BicingGP.Application.MediatR.CityBik.Status;
 using BicingGP.DataDomain.CityBik.Generic;
 

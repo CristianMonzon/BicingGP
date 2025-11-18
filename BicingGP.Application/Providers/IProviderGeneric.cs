@@ -8,6 +8,7 @@ namespace BicingGP.Application.Providers
         List<T> ConvertToStationOutDTOGeneric(string response);
 
         List<StatusOutDTO> ConvertToStatusOutDTO(string response);
+                       
 
         string? Token { get; set; }
         string UrlGetStation { get; set; }

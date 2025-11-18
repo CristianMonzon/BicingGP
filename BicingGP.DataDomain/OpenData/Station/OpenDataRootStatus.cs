@@ -1,6 +1,6 @@
-namespace BicingGP.Application.Domain.Json.OpenData.Status
+namespace BicingGP.DataDomain.OpenData.Status
 {
-    public class OpenDataStatus
+    public class OpenDataRootStatus
     {
         public int? last_updated { get; set; }
         public int? ttl { get; set; }

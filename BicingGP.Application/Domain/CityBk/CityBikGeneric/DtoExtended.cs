@@ -1,7 +1,7 @@
 ﻿using BicingGP.Application.MediatR.CityBik.Status;
 using BicingGP.DataDomain.CityBik.Generic;
 
-namespace BicingGP.Application.Domain.Json.CityBk.CityBikGeneric
+namespace BicingGP.Application.Domain.CityBk.CityBikGeneric
 {
     internal static class GenericDtoExtended
     {
@@ -18,10 +18,10 @@ namespace BicingGP.Application.Domain.Json.CityBk.CityBikGeneric
                 Latitude = station.latitude,
                 Longitude = station.longitude,
                 FreBikes = station.free_bikes,
-                
+
                 NormalBikes = station.extra?.normal_bikes,
                 ElectricBikes = station.extra?.ebikes,
-                
+
                 Name = station.name,
                 Timestamp = station.timestamp,
                 EmptySlots = station.empty_slots,

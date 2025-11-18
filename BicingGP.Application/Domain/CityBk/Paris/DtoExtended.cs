@@ -2,7 +2,7 @@
 using BicingGP.Application.MediatR.CityBik.Status;
 using BicingGP.DataDomain.CityBik.Paris;
 
-namespace BicingGP.Application.Domain.Json.CityBk.Paris
+namespace BicingGP.Application.Domain.CityBk.Paris
 {
     internal static class DtoExtended
     {

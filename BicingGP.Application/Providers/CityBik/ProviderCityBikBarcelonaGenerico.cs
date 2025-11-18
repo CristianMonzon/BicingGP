@@ -1,4 +1,4 @@
-﻿using BicingGP.Application.Domain.Json.CityBk.Barcelona;
+﻿using BicingGP.Application.Domain.CityBk.Barcelona;
 using BicingGP.Application.MediatR.CityBik.Station.Barcelona;
 using BicingGP.Application.MediatR.CityBik.Status;
 using BicingGP.DataDomain.CityBik.Barcelona;

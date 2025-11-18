@@ -7,16 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Domain\OpenData\Station\**" />
     <Compile Remove="MediatR\CityBik\Station\Paris\**" />
     <Compile Remove="MediatR\OpenData\Station\**" />
+    <EmbeddedResource Remove="Domain\OpenData\Station\**" />
     <EmbeddedResource Remove="MediatR\CityBik\Station\Paris\**" />
     <EmbeddedResource Remove="MediatR\OpenData\Station\**" />
+    <None Remove="Domain\OpenData\Station\**" />
     <None Remove="MediatR\CityBik\Station\Paris\**" />
     <None Remove="MediatR\OpenData\Station\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Domain\Json\CityBk\Rosario\RosarioCityBikeRootGeneric.cs" />
+    <Compile Remove="Domain\CityBk\Rosario\RosarioCityBikeRootGeneric.cs" />
     <Compile Remove="MediatR\InputDTOBase.cs" />
     <Compile Remove="MediatR\MediaTrMessage.cs" />
     <Compile Remove="Services\OldStationServices.cs" />

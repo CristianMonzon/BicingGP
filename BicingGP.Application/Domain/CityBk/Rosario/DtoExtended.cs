@@ -1,8 +1,7 @@
-﻿using BicingGP.Application.Domain.CityBk.Rosario;
-using BicingGP.Application.MediatR.CityBik.Station.Rosario;
+﻿using BicingGP.Application.MediatR.CityBik.Station.Rosario;
 using BicingGP.Application.MediatR.CityBik.Status;
 
-namespace BicingGP.Application.Domain.Json.CityBk.Rosario
+namespace BicingGP.Application.Domain.CityBk.Rosario
 {
     internal static class DtoExtended
     {
@@ -51,6 +50,6 @@ namespace BicingGP.Application.Domain.Json.CityBk.Rosario
                 Slots = station.extra.slots,
                 Virtual = station.extra.@virtual
             };
-        }
+        }        
     }
 }
