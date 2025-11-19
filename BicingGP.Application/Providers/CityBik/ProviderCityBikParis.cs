@@ -1,7 +1,23 @@
-﻿namespace BicingGP.Application.Providers.CityBik
+﻿using BicingGP.Application.Domain.CityBk.Paris;
+using BicingGP.Application.MediatR.CityBik.Station.Paris;
+using BicingGP.Application.MediatR.CityBik.Status.Paris;
+using BicingGP.DataDomain.CityBik.Paris;
+
+namespace BicingGP.Application.Providers.CityBik
 {
 
-    public class ProviderCityBikParis : GenericProvider, IProvider
+    public class ProviderCityBikParis : Provider, IProviderGeneric<StationOutDtoParis, StatusOutputDtoParis>
     {
+        public List<StationOutDtoParis> ConvertToStationOutDtos(string response)
+        {
+            var root = GenericConvert<CityBikRootGeneric>(response);
+            return root!.network!.stations!.Select(c => c.ToStationOutDto()).ToList();
+        }
+
+        public List<StatusOutputDtoParis> ConvertToStatusOutDtos(string response)
+        {
+            var root = GenericConvert<CityBikRootGeneric>(response);
+            return root!.network!.stations!.Select(c => c.ToStatusOutDto()).ToList();
+        }
     }
 }

@@ -30,12 +30,12 @@ namespace WebApiBicingGP.Controllers
         /// Get Status information of all stations
         /// </summary>
         [HttpGet("Status")]
-        public async Task<ActionResult<List<OpenDataStatusOutDTO>>> GetStatus()
+        public async Task<ActionResult<List<OpenDataStatusOutDto>>> GetStatus()
         {
             try
             {
-                var response = await _mediator.Send(new OpenDataStatusInputDTO(_provider));
-                var statusResult = new Result<List<OpenDataStatusOutDTO>>(response);
+                var response = await _mediator.Send(new OpenDataStatusInputDto(_provider));
+                var statusResult = new Result<IEnumerable<OpenDataStatusOutDto>>(response);
                 return Ok(statusResult.ResultData);
             }
             catch (Exception ex)
@@ -50,12 +50,12 @@ namespace WebApiBicingGP.Controllers
         /// <returns></returns>
         /// </summary>
         [HttpGet("Station")]
-        public async Task<ActionResult<List<OpenDataStationOutDTO>>> GetStation()
+        public async Task<ActionResult<IEnumerable<OpenDataStationOutDto>>> GetStation()
         {
             try
-            {                
-                var response = await _mediator.Send(new OpenDataStationInputDTO(_provider));                
-                var stationResult = new Result<List<OpenDataStationOutDTO>>(response);
+            {
+                var response = await _mediator.Send(new OpenDataStationInputDto(_provider));                
+                var stationResult = new Result<IEnumerable<OpenDataStationOutDto>>(response);
                 return Ok(stationResult.ResultData);                
             }
             catch (Exception ex)

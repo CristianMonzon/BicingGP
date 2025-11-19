@@ -1,6 +1,6 @@
 ﻿namespace BicingGP.Application.MediatR.OpenData.Status
 {
-    public class OpenDataStatusOutDTO
+    public class OpenDataStatusOutDto
     {
         public string? StationId { get; set; }
         public int? AvailableBikes { get; set; }

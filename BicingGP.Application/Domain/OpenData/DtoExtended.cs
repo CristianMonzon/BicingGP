@@ -2,14 +2,14 @@
 {
     public static class DtoExtended
     {
-        public static List<MediatR.OpenData.Status.OpenDataStatusOutDTO> ToStatusOutDTOs(this BicingGP.DataDomain.OpenData.Status.OpenDataRootStatus openDataStatus)
+        public static List<MediatR.OpenData.Status.OpenDataStatusOutDto> ToStatusOutDtos(this BicingGP.DataDomain.OpenData.Status.OpenDataRootStatus openDataStatus)
         {            
-            return openDataStatus!.data!.stations!.Select(c => c.ToStatusOutDTO()).ToList();
+            return openDataStatus!.data!.stations!.Select(c => c.ToStatusOutDto()).ToList();
         }
 
-        public static MediatR.OpenData.Status.OpenDataStatusOutDTO ToStatusOutDTO(this BicingGP.DataDomain.OpenData.Status.Station station)
+        public static MediatR.OpenData.Status.OpenDataStatusOutDto ToStatusOutDto(this BicingGP.DataDomain.OpenData.Status.Station station)
         {
-            return new MediatR.OpenData.Status.OpenDataStatusOutDTO()
+            return new MediatR.OpenData.Status.OpenDataStatusOutDto()
             {
                 StationId = station.station_id,
                 FreBikes = station.num_bikes_available,
@@ -28,14 +28,14 @@
             };
         }
 
-        public static List<MediatR.OpenData.Station.OpenDataStationOutDTO> ToStationOutDTOs(this BicingGP.DataDomain.OpenData.Station.Data openData)
+        public static List<MediatR.OpenData.Station.OpenDataStationOutDto> ToStationOutDtos(this BicingGP.DataDomain.OpenData.Station.Data openData)
         {
-            return openData!.stations!.Select(c => c.ToStationOutDTO()).ToList();
+            return openData!.stations!.Select(c => c.ToStationOutDto()).ToList();
         }
 
-        private static MediatR.OpenData.Station.OpenDataStationOutDTO ToStationOutDTO(this BicingGP.DataDomain.OpenData.Station.Station station)
+        private static MediatR.OpenData.Station.OpenDataStationOutDto ToStationOutDto(this BicingGP.DataDomain.OpenData.Station.Station station)
         {
-            return new MediatR.OpenData.Station.OpenDataStationOutDTO()
+            return new MediatR.OpenData.Station.OpenDataStationOutDto()
             {
                 StationId = station.station_id.ToString(),
                 Name = station.name,

@@ -6,20 +6,20 @@ namespace BicingGP.Application.Providers.OpenData
 {
     public class ProviderOpenData : Provider 
     {
-        public Func<string, IList<OpenDataStationOutDTO>> ConvertToStationDTO { get => ConvertToStationOutDTO; }
+        public Func<string, IList<OpenDataStationOutDto>> ConvertToStationDto { get => ConvertToStationOutDto; }
 
-        public List<OpenDataStationOutDTO> ConvertToStationOutDTO(string result)
+        public List<OpenDataStationOutDto> ConvertToStationOutDto(string result)
         {
             var opendataStation =GenericConvert<BicingGP.DataDomain.OpenData.Station.OpenDataRootStation>(result);
             
 
-            return opendataStation!.data!.ToStationOutDTOs();
+            return opendataStation!.data!.ToStationOutDtos();
         }
 
-        public List<OpenDataStatusOutDTO> ConvertToStatusOutDTO(string result)
+        public List<OpenDataStatusOutDto> ConvertToStatusOutDto(string result)
         {
             var openDataStatus = GenericConvert<BicingGP.DataDomain.OpenData.Status.OpenDataRootStatus>(result);
-            return openDataStatus!.ToStatusOutDTOs();            
+            return openDataStatus!.ToStatusOutDtos();            
         }
     }
 }

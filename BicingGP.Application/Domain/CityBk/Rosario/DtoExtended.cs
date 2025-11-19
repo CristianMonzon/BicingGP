@@ -1,37 +1,42 @@
 ﻿using BicingGP.Application.MediatR.CityBik.Station.Rosario;
-using BicingGP.Application.MediatR.CityBik.Status;
+using BicingGP.Application.MediatR.CityBik.Status.Rosario;
 
 namespace BicingGP.Application.Domain.CityBk.Rosario
 {
     internal static class DtoExtended
     {
-        internal static List<StatusOutDTO> ToStatusOutDTOs(this CityBikeRootGeneric root)
+        internal static List<StatusOutputDtoRosario> ToStatusOutDtos(this CityBikRootGeneric root)
         {
-            return root!.network!.stations!.Select(c => c.ToStatusOutDTO()).ToList();
+            return root!.network!.stations!.Select(c => c.ToStatusOutDto()).ToList();
         }
 
-        internal static StatusOutDTO ToStatusOutDTO(this Station station)
+        internal static StatusOutputDtoRosario ToStatusOutDto(this Station station)
         {
-            return new StatusOutDTO()
+            return new StatusOutputDtoRosario()
             {
                 StationId = station.extra!.uid.ToString(),
-                Latitude = station.latitude,
-                Longitude = station.longitude,
-                FreBikes = station.free_bikes,
                 Name = station.name,
-                Timestamp = station.timestamp,
+
+                FreBikes = station.free_bikes,
                 EmptySlots = station.empty_slots,
+
+                Slots = station.empty_slots,
+                Timestamp = station.timestamp,
+
+                Address = station.extra.address,
+                PaymentMethods = station.extra.payment,
+                PaymentTerminal = station.extra.paymentterminal
             };
         }
 
-        internal static List<StationOutDTORosario> ToStationOutDTO(this CityBikeRootGeneric root)
+        internal static List<StationOutDtoRosario> ToStationOutDtos(this CityBikRootGeneric root)
         {
-            return root!.network!.stations!.Select(c => c.ToStationOutDTORosario()).ToList();
+            return root!.network!.stations!.Select(c => c.ToStationOutDto()).ToList();
         }
 
-        internal static StationOutDTORosario ToStationOutDTORosario(this Station station)
+        internal static StationOutDtoRosario ToStationOutDto(this Station station)
         {
-            return new StationOutDTORosario()
+            return new StationOutDtoRosario()
             {
                 StationId = station.extra!.uid.ToString(),
                 Name = station.name,
@@ -50,6 +55,6 @@ namespace BicingGP.Application.Domain.CityBk.Rosario
                 Slots = station.extra.slots,
                 Virtual = station.extra.@virtual
             };
-        }        
+        }
     }
 }

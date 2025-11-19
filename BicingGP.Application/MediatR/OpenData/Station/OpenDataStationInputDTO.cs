@@ -3,12 +3,12 @@ using MediatR;
 
 namespace BicingGP.Application.MediatR.OpenData.Station
 {
-    public class OpenDataStationInputDTO : IRequest<List<OpenDataStationOutDTO>>
+    public class OpenDataStationInputDto : IRequest<IEnumerable<OpenDataStationOutDto>>
     {
 
         public ProviderOpenData Provider { get; private set; }
 
-        public OpenDataStationInputDTO(ProviderOpenData provider)
+        public OpenDataStationInputDto(ProviderOpenData provider)
         {
             Provider = provider;
         }

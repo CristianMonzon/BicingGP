@@ -20,17 +20,20 @@
 
   <ItemGroup>
     <Compile Remove="Domain\CityBk\Rosario\RosarioCityBikeRootGeneric.cs" />
-    <Compile Remove="MediatR\InputDTOBase.cs" />
+    <Compile Remove="MediatR\CityBik\Status\CityBikStatusInputDto.cs" />
+    <Compile Remove="MediatR\CityBik\Status\CityBikStatusOuputDto.cs" />
+    <Compile Remove="MediatR\CityBik\Status\StatusMessageHandler.cs" />
+    <Compile Remove="MediatR\InputDtoBase.cs" />
     <Compile Remove="MediatR\MediaTrMessage.cs" />
     <Compile Remove="Services\OldStationServices.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="MediatR\CityBik\Station\Paris\StationInputDTOParis.cs" />
+    <Compile Include="MediatR\CityBik\Station\Paris\StationInputDtoParis.cs" />
     <Compile Include="MediatR\CityBik\Station\Paris\StationMessageParisHandler.cs" />
-    <Compile Include="MediatR\CityBik\Station\Paris\StationOuputDTOParis.cs" />
-    <Compile Include="MediatR\OpenData\Station\OpenDataStationInputDTO.cs" />
-    <Compile Include="MediatR\OpenData\Station\OpenDataStationOuputDTO.cs" />
+    <Compile Include="MediatR\CityBik\Station\Paris\StationOuputDtoParis.cs" />
+    <Compile Include="MediatR\OpenData\Station\OpenDataStationInputDto.cs" />
+    <Compile Include="MediatR\OpenData\Station\OpenDataStationOuputDto.cs" />
     <Compile Include="MediatR\OpenData\Station\StationMessageHandler.cs" />
   </ItemGroup>
 

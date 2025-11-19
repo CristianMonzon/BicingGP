@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-
-namespace BicingGP.DataDomain.CityBik.Barcelona
+﻿namespace BicingGP.DataDomain.CityBik.Barcelona
 {
     public class CityBikRootGeneric
     {

@@ -1,4 +1,9 @@
-using BicingGP.Application.Providers;
+using BicingGP.Application.MediatR.CityBik.Station.Barcelona;
+using BicingGP.Application.MediatR.CityBik.Station.Paris;
+using BicingGP.Application.MediatR.CityBik.Station.Rosario;
+using BicingGP.Application.MediatR.CityBik.Status.Barcelona;
+using BicingGP.Application.MediatR.CityBik.Status.Paris;
+using BicingGP.Application.MediatR.CityBik.Status.Rosario;
 using BicingGP.Application.Providers.CityBik;
 using BicingGP.Application.Services.Status;
 using FluentAssertions;
@@ -26,19 +31,15 @@ namespace BicingGP.Tests
         {
             //Arrange
             Setup();
-            IProvider provider = new ProviderCityBikBarcelona()
+            var provider = new ProviderCityBikBarcelona()
             {
                 UrlGetStatus = "http://api.citybik.es/v2/networks/bicing"
             };
             
-            var statusServices = new StatusServices(httpClientFactory, provider);
+            var statusServices = new StatusServices<StationOutDtoBarcelona,StatusOutputDtoBarcelona>(httpClientFactory, provider);
 
             //Act
             var stations = statusServices.GetStatus();
-
-            while (!stations.IsCompleted)
-            {
-            }
 
             //Assert
             var expected = stations.Result.Count();
@@ -52,19 +53,15 @@ namespace BicingGP.Tests
         {
             //Arrange
             Setup();
-            IProvider provider = new ProviderCityBikRosario()
+            var provider = new ProviderCityBikRosario()
             {
                 UrlGetStatus = "http://api.citybik.es/v2/networks/mibicitubici"
             };
 
-            var statusServices = new StatusServices(httpClientFactory, provider);
+            var statusServices = new StatusServices<StationOutDtoRosario, StatusOutputDtoRosario>(httpClientFactory, provider);
 
             //Act
             var stations = statusServices.GetStatus();
-
-            while (!stations.IsCompleted)
-            {
-            }
 
             //Assert
             var expected = stations.Result.Count();
@@ -79,20 +76,16 @@ namespace BicingGP.Tests
         {
             //Arrange
             Setup();
-            IProvider provider = new ProviderCityBikParis()
+            var provider = new ProviderCityBikParis()
             {
                 UrlGetStatus = "http://api.citybik.es/v2/networks/velib"
             };
 
-            var statusServices = new StatusServices(httpClientFactory, provider);
+            var statusServices = new StatusServices<StationOutDtoParis, StatusOutputDtoParis>(httpClientFactory, provider);
 
             //Act
             var stations = statusServices.GetStatus();
-
-            while (!stations.IsCompleted)
-            {
-            }
-
+            
             //Assert
             var expected = stations.Result.Count();
             var result = (expected > 1);

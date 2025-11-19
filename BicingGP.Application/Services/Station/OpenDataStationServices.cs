@@ -16,13 +16,13 @@ namespace BicingGP.Application.Services.Station
             _providerOpenData = provider;
         }
 
-        public async Task<List<OpenDataStationOutDTO>> GetStations()
+        public async Task<List<OpenDataStationOutDto>> GetStations()
         {
             var httpcient = _httpClientFactory.CreateClient();
             if (_providerOpenData.Token != null) httpcient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(_providerOpenData.Token);
 
             var response = await httpcient.GetStringAsync(_providerOpenData.UrlGetStation);
-            var result = _providerOpenData.ConvertToStationOutDTO(response);
+            var result = _providerOpenData.ConvertToStationOutDto(response);
             return result;
         }
     }

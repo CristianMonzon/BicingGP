@@ -1,35 +1,34 @@
 ﻿using BicingGP.Application.Providers.CityBik;
 using BicingGP.Application.MediatR.CityBik.Station.Barcelona;
-using BicingGP.Application.MediatR.CityBik.Status;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using WebApiBicingGP.Domain;
 using WebApiBicingGP.Manager;
+using BicingGP.Application.MediatR.CityBik.Status.Barcelona;
 
 namespace WebApiBicingGP.Controllers
 {
     [ApiController]
     [Route("api/v1/[Controller]")]
-    public class CityBikBicingController : ControllerBaseGeneric<ProviderCityBikBarcelona, StationOutDTOBarcelona>
+    public class CityBikBicingController : ControllerBaseGeneric<StationOutDtoBarcelona,StatusOutputDtoBarcelona>
     {
         public CityBikBicingController(IMediator mediator, DataProvidersSettings providerSettings)
         {
             _mediator = mediator;
-            _providerGeneric = providerSettings.ProviderCityBikBarcelonaGenerico;
-            _provider = providerSettings.ProviderCityBikBarcelona;
+            _providerGeneric = providerSettings.ProviderCityBikBarcelonaGenerico;            
         }
 
         /// <summary>
         /// Get Status information of all stations
         /// </summary>
         [HttpGet("Status")]
-        public async Task<ActionResult<List<StatusOutDTO>>> GetStatus()
+        public async Task<ActionResult<IEnumerable<StatusOutputDtoBarcelona>>> GetStatus()
         {
             try
             {
-                var response = await _mediator.Send(new StatusInputDTO(_provider));
-                var statusResult = new Result<List<StatusOutDTO>>(response);
+                var response = await _mediator.Send(new StatusInputDtoBarcelona(_providerGeneric));
+                var statusResult = new Result<IEnumerable<StatusOutputDtoBarcelona>>(response);
                 return Ok(statusResult.ResultData);
             }
             catch (Exception ex)
@@ -44,12 +43,12 @@ namespace WebApiBicingGP.Controllers
         /// <returns></returns>
         /// </summary>
         [HttpGet("Station")]
-        public async Task<ActionResult<List<StationOutDTOBarcelona>>> GetStation()
+        public async Task<ActionResult<IEnumerable<StationOutDtoBarcelona>>> GetStation()
         {
             try
             {            
-                var response = await _mediator.Send(new StationInputDTOBarcelona(_providerGeneric));                
-                var stationResult = new Result<List<StationOutDTOBarcelona>>(response);
+                var response = await _mediator.Send(new StationInputDtoBarcelona(_providerGeneric));                
+                var stationResult = new Result<IEnumerable<StationOutDtoBarcelona>>(response);
                 return Ok(stationResult.ResultData);                
             }
             catch (Exception ex)

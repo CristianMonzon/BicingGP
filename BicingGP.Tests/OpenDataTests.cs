@@ -21,6 +21,10 @@ namespace BicingGP.Tests
             provider.UrlGetStatus = "https://opendata-ajuntament.barcelona.cat/data/ca/dataset/estat-estacions-bicing/resource/1b215493-9e63-4a12-8980-2d7e0fa19f85/download/recurs.json";
             provider.UrlGetStation = "https://opendata-ajuntament.barcelona.cat/data/ca/dataset/estat-estacions-bicing/resource/f60e9291-5aaa-417d-9b91-612a9de800aa/download/recurs.json";
             provider.Token = "---Use your token here--";
+
+            
+
+             provider.Token = "7b7f191f43c5118c11a436c82b8943d5f195b54dede8a867622d32ca26fdf306";
             //Get your token in this page https://opendata-ajuntament.barcelona.cat/es/desenvolupadors
 
             var serviceProvider = new ServiceCollection()
@@ -42,9 +46,6 @@ namespace BicingGP.Tests
             //Act
             var stations = statusServices.GetStatus();
 
-            while (!stations.IsCompleted) { 
-            }
-
             //Assert
             var expected = stations.Result.Count();
             var result = (expected > 1);
@@ -62,10 +63,6 @@ namespace BicingGP.Tests
 
             //Act
             var stations = stationServices.GetStations();
-
-            while (!stations.IsCompleted)
-            {
-            }
 
             //Assert
             var expected = stations.Result.Count();

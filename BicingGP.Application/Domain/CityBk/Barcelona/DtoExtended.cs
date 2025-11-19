@@ -1,38 +1,45 @@
 ﻿using BicingGP.Application.MediatR.CityBik.Station.Barcelona;
-using BicingGP.Application.MediatR.CityBik.Status;
+using BicingGP.Application.MediatR.CityBik.Status.Barcelona;
 using BicingGP.DataDomain.CityBik.Barcelona;
 
 namespace BicingGP.Application.Domain.CityBk.Barcelona
 {
     internal static class DtoExtended
     {
-        internal static List<StatusOutDTO> ToStatusOutDTOs(this CityBikRootGeneric root)
+        internal static List<StatusOutputDtoBarcelona> ToStatusOutDtos(this CityBikRootGeneric root)
         {
-            return root!.network!.stations!.Select(c => c.ToStatusOutDTO()).ToList();
+            return root!.network!.stations!.Select(c => c.ToStatusOutDto()).ToList();
         }
 
-        internal static StatusOutDTO ToStatusOutDTO(this Station station)
+        internal static StatusOutputDtoBarcelona ToStatusOutDto(this Station station)
         {
-            return new StatusOutDTO()
+            return new StatusOutputDtoBarcelona()
             {
-                StationId = station!.extra!.uid,
+                StationId = station.extra?.uid,
+                Name = station.name,
                 Latitude = station.latitude,
                 Longitude = station.longitude,
+
                 FreBikes = station.free_bikes,
-                Name = station.name,
-                Timestamp = station.timestamp,
                 EmptySlots = station.empty_slots,
+
+                ElectronicBikes = station.extra?.ebikes,
+                NormalBikes = station.extra?.normal_bikes,
+
+                HasElectronicBikes = station.extra?.has_ebikes,
+
+                Timestamp = station.timestamp
             };
         }
 
-        internal static List<StationOutDTOBarcelona> ToStationOutDTO(this CityBikRootGeneric root)
+        internal static List<StationOutDtoBarcelona> ToStationOutDtos(this CityBikRootGeneric root)
         {
-            return root!.network!.stations!.Select(c => c.ToStationOutDTOBarcelona()).ToList();
+            return root!.network!.stations!.Select(c => c.ToStationOutDto()).ToList();
         }
 
-        internal static StationOutDTOBarcelona ToStationOutDTOBarcelona(this Station station)
+        internal static StationOutDtoBarcelona ToStationOutDto(this Station station)
         {
-            return new StationOutDTOBarcelona()
+            return new StationOutDtoBarcelona()
             {
                 StationId = station!.extra!.uid,
                 Name = station.name,

@@ -1,20 +1,10 @@
-﻿using BicingGP.Application.MediatR.CityBik.Status;
-
-namespace BicingGP.Application.Providers
+﻿namespace BicingGP.Application.Providers
 {
     
-    public interface IProviderGeneric<T>
+    public interface IProviderGeneric<TStation,TStatus> : IProvider
     {
-        List<T> ConvertToStationOutDTOGeneric(string response);
+        List<TStation> ConvertToStationOutDtos(string response);
 
-        List<StatusOutDTO> ConvertToStatusOutDTO(string response);
-                       
-
-        string? Token { get; set; }
-        string UrlGetStation { get; set; }
-        string UrlGetStatus { get; set; }
-
-        bool HasToken { get; }
+        List<TStatus> ConvertToStatusOutDtos(string response);
     }
-
 }
