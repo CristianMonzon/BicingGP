@@ -4,7 +4,7 @@ using MediatR;
 namespace BicingGP.Application.MediatR.OpenData.Station
 {
 
-    public class StationMessageHandler : IRequestHandler<OpenDataStationInputDTO, List<OpenDataStationOutDTO>>
+    public class StationMessageHandler : IRequestHandler<OpenDataStationInputDto, IEnumerable<OpenDataStationOutDto>>
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
@@ -13,7 +13,7 @@ namespace BicingGP.Application.MediatR.OpenData.Station
             _httpClientFactory = httpClientFactory;
         }
 
-        public async Task<List<OpenDataStationOutDTO>> Handle(OpenDataStationInputDTO request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<OpenDataStationOutDto>> Handle(OpenDataStationInputDto request, CancellationToken cancellationToken)
         {        
             var stationServices = new OpenDataStationServices(_httpClientFactory, request.Provider);
             var stations= await stationServices.GetStations();

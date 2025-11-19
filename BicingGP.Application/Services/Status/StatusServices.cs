@@ -1,29 +1,27 @@
 ﻿using BicingGP.Application.Providers;
-using BicingGP.Application.MediatR.CityBik.Status;
 using System.Net.Http.Headers;
 
 namespace BicingGP.Application.Services.Status
 {
 
-    public class StatusServices
+    public class StatusServices<TStationOutPut, TStatusOutPut>
     {
         protected IHttpClientFactory _httpClientFactory;
-        protected IProvider _provider;
+        protected IProviderGeneric<TStationOutPut, TStatusOutPut> _providerGeneric;
 
-        public StatusServices(IHttpClientFactory httpClientFactory, IProvider provider)
+        public StatusServices(IHttpClientFactory httpClientFactory, IProviderGeneric<TStationOutPut, TStatusOutPut> providerGeneric)
         {
             _httpClientFactory = httpClientFactory;
-            _provider= provider;
+            _providerGeneric = providerGeneric;
         }
 
-        public async Task<List<StatusOutDTO>> GetStatus()
+        public async Task<List<TStatusOutPut>> GetStatus()
         {
             var httpcient = _httpClientFactory.CreateClient();
-            if (_provider.HasToken) httpcient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(_provider.Token);
+            if (_providerGeneric.HasToken) httpcient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(_providerGeneric.Token);
 
-            var response = await httpcient.GetStringAsync(_provider.UrlGetStatus);
-
-            return _provider.ConvertToStatusOutDTO(response);
+            var response = await httpcient.GetStringAsync(_providerGeneric.UrlGetStatus);
+            return _providerGeneric.ConvertToStatusOutDtos(response);
         }
     }
 }

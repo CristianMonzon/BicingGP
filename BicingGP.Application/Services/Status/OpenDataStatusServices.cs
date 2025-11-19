@@ -16,7 +16,7 @@ namespace BicingGP.Application.Services.Status
             ProviderOpenData = provider;
         }
 
-        public async Task<List<OpenDataStatusOutDTO>> GetStatus()
+        public async Task<List<OpenDataStatusOutDto>> GetStatus()
         {
             var httpcient = _httpClientFactory.CreateClient();
             
@@ -24,7 +24,7 @@ namespace BicingGP.Application.Services.Status
             
             var response = await httpcient.GetStringAsync(ProviderOpenData.UrlGetStatus);
 
-            return ProviderOpenData.ConvertToStatusOutDTO(response);
+            return ProviderOpenData.ConvertToStatusOutDto(response);
         }
 
     }

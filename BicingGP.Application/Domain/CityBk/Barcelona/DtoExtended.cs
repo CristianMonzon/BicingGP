@@ -1,0 +1,58 @@
+﻿using BicingGP.Application.MediatR.CityBik.Station.Barcelona;
+using BicingGP.Application.MediatR.CityBik.Status.Barcelona;
+using BicingGP.DataDomain.CityBik.Barcelona;
+
+namespace BicingGP.Application.Domain.CityBk.Barcelona
+{
+    internal static class DtoExtended
+    {
+        internal static List<StatusOutputDtoBarcelona> ToStatusOutDtos(this CityBikRootGeneric root)
+        {
+            return root!.network!.stations!.Select(c => c.ToStatusOutDto()).ToList();
+        }
+
+        internal static StatusOutputDtoBarcelona ToStatusOutDto(this Station station)
+        {
+            return new StatusOutputDtoBarcelona()
+            {
+                StationId = station.extra?.uid,
+                Name = station.name,
+                Latitude = station.latitude,
+                Longitude = station.longitude,
+
+                FreBikes = station.free_bikes,
+                EmptySlots = station.empty_slots,
+
+                ElectronicBikes = station.extra?.ebikes,
+                NormalBikes = station.extra?.normal_bikes,
+
+                HasElectronicBikes = station.extra?.has_ebikes,
+
+                Timestamp = station.timestamp
+            };
+        }
+
+        internal static List<StationOutDtoBarcelona> ToStationOutDtos(this CityBikRootGeneric root)
+        {
+            return root!.network!.stations!.Select(c => c.ToStationOutDto()).ToList();
+        }
+
+        internal static StationOutDtoBarcelona ToStationOutDto(this Station station)
+        {
+            return new StationOutDtoBarcelona()
+            {
+                StationId = station!.extra!.uid,
+                Name = station.name,
+                Latitude = station.latitude,
+                Longitude = station.longitude,
+                Timestamp = station.timestamp,
+                FreeBikes = station.free_bikes,
+                EmptySlots = station.empty_slots,
+                Online = station!.extra!.online,
+                NormalBikes = station!.extra!.normal_bikes,
+                ElectricBikes = station!.extra!.ebikes,
+                HasEbikes = station!.extra!.has_ebikes,
+            };
+        }
+    }
+}

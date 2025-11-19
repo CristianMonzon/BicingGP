@@ -1,4 +1,3 @@
-using BicingGP.Application.MediatR.CityBik.Status;
 using MediatR;
 using WebApiBicingGP.Manager;
 
@@ -18,13 +17,18 @@ namespace WebApiBicingGP
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            builder.Services.AddMediatR(c => c.AsScoped(), typeof(BicingGP.Application.MediatR.CityBik.Station.Barcelona.StationInputDTOBarcelona).Assembly);
-            builder.Services.AddMediatR(c => c.AsScoped(), typeof(BicingGP.Application.MediatR.CityBik.Station.Paris.StationInputDTOParis).Assembly);
-            builder.Services.AddMediatR(c => c.AsScoped(), typeof(BicingGP.Application.MediatR.CityBik.Station.Rosario.StationInputDTORosario).Assembly);
-            builder.Services.AddMediatR(c => c.AsScoped(), typeof(BicingGP.Application.MediatR.OpenData.Station.OpenDataStationInputDTO).Assembly);
-            builder.Services.AddMediatR(c => c.AsScoped(), typeof(StatusInputDTO).Assembly);
-
+            builder.Services.AddMediatR(c => c.AsScoped(), typeof(BicingGP.Application.MediatR.CityBik.Station.Barcelona.StationInputDtoBarcelona).Assembly);
+            builder.Services.AddMediatR(c => c.AsScoped(), typeof(BicingGP.Application.MediatR.CityBik.Station.Paris.StationInputDtoParis).Assembly);
+            builder.Services.AddMediatR(c => c.AsScoped(), typeof(BicingGP.Application.MediatR.CityBik.Station.Rosario.StationInputDtoRosario).Assembly);
+            builder.Services.AddMediatR(c => c.AsScoped(), typeof(BicingGP.Application.MediatR.OpenData.Station.OpenDataStationInputDto).Assembly);
             
+            //builder.Services.AddMediatR(c => c.AsScoped(), typeof(BicingGP.Application.MediatR.CityBik.Status.CityBikStatusInputDto).Assembly);
+
+            builder.Services.AddMediatR(c => c.AsScoped(), typeof(BicingGP.Application.MediatR.CityBik.Status.Barcelona.StatusInputDtoBarcelona).Assembly);
+            builder.Services.AddMediatR(c => c.AsScoped(), typeof(BicingGP.Application.MediatR.CityBik.Status.Paris.StatusInputDtoParis).Assembly);
+            builder.Services.AddMediatR(c => c.AsScoped(), typeof(BicingGP.Application.MediatR.CityBik.Status.Rosario.StatusInputDtoRosario).Assembly);
+
+
             InjectionDependencies(builder);
 
             var app = builder.Build();

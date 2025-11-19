@@ -3,7 +3,7 @@
 namespace BicingGP.Application.Providers
 {
 
-    public abstract class Provider 
+    public abstract class Provider :IProvider
     {
         public string UrlGetStation { get; set; }
         public string UrlGetStatus { get; set; }

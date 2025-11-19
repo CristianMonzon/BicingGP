@@ -2,7 +2,7 @@
 
 namespace BicingGP.Application.Domain.CityBk.Rosario
 {
-    public class CityBikeRootGeneric
+    public class CityBikRootGeneric
     {
         public Network? network { get; set; }
     }
