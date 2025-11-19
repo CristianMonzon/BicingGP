@@ -22,9 +22,6 @@ namespace BicingGP.Tests
             provider.UrlGetStation = "https://opendata-ajuntament.barcelona.cat/data/ca/dataset/estat-estacions-bicing/resource/f60e9291-5aaa-417d-9b91-612a9de800aa/download/recurs.json";
             provider.Token = "---Use your token here--";
 
-            
-
-             provider.Token = "7b7f191f43c5118c11a436c82b8943d5f195b54dede8a867622d32ca26fdf306";
             //Get your token in this page https://opendata-ajuntament.barcelona.cat/es/desenvolupadors
 
             var serviceProvider = new ServiceCollection()
