@@ -38,10 +38,10 @@ namespace BicingGP.Tests
             //Arrange
             Setup();            
 
-            var statusServices = new OpenDataStatusServices(httpClientFactory, provider);
+            var statusServices = new OpenDataStatusService(httpClientFactory, provider);
 
             //Act
-            var stations = statusServices.GetStatus();
+            var stations = statusServices.Get();
 
             //Assert
             var expected = stations.Result.Count();
@@ -56,10 +56,10 @@ namespace BicingGP.Tests
             //Arrange
             Setup();
 
-            var stationServices = new OpenDataStationServices(httpClientFactory, provider);
+            var stationServices = new OpenDataStationService(httpClientFactory, provider);
 
             //Act
-            var stations = stationServices.GetStations();
+            var stations = stationServices.Get();
 
             //Assert
             var expected = stations.Result.Count();

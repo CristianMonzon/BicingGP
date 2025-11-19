@@ -16,8 +16,8 @@ namespace BicingGP.Application.MediatR.CityBik.Station.Paris
 
         public async Task<IEnumerable<StationOutDtoParis>> Handle(StationInputDtoParis request, CancellationToken cancellationToken)
         {            
-            var stationServices = new StationServices<StationOutDtoParis, StatusOutputDtoParis>(_httpClientFactory, request.ProviderGeneric);
-            return await stationServices.GetStations();
+            var stationServices = new StationService<StationOutDtoParis, StatusOutputDtoParis>(_httpClientFactory, request.ProviderGeneric);
+            return await stationServices.Get();
         }
     }
 }

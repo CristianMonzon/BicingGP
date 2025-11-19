@@ -8,13 +8,13 @@ namespace BicingGP.Application.Providers.CityBik
 
     public class ProviderCityBikParis : Provider, IProviderGeneric<StationOutDtoParis, StatusOutputDtoParis>
     {
-        public List<StationOutDtoParis> ConvertToStationOutDtos(string response)
+        public IEnumerable<StationOutDtoParis> ConvertToStationOutDtos(string response)
         {
             var root = GenericConvert<CityBikRootGeneric>(response);
             return root!.network!.stations!.Select(c => c.ToStationOutDto()).ToList();
         }
 
-        public List<StatusOutputDtoParis> ConvertToStatusOutDtos(string response)
+        public IEnumerable<StatusOutputDtoParis> ConvertToStatusOutDtos(string response)
         {
             var root = GenericConvert<CityBikRootGeneric>(response);
             return root!.network!.stations!.Select(c => c.ToStatusOutDto()).ToList();

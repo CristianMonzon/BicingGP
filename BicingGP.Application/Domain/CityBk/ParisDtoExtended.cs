@@ -4,7 +4,7 @@ using BicingGP.DataDomain.CityBik.Paris;
 
 namespace BicingGP.Application.Domain.CityBk.Paris
 {
-    internal static class DtoExtended
+    internal static class ParisDtoExtended
     {
         internal static List<StatusOutputDtoParis> ToStatusOutDtos(this CityBikRootGeneric root)
         {
@@ -40,7 +40,6 @@ namespace BicingGP.Application.Domain.CityBk.Paris
         {
             return root!.network!.stations!.Select(c => c.ToStationOutDto()).ToList();
         }
-
 
         internal static StationOutDtoParis ToStationOutDto(this Station station)
         {

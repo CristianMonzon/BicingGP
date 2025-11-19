@@ -15,8 +15,8 @@ namespace BicingGP.Application.MediatR.OpenData.Station
 
         public async Task<IEnumerable<OpenDataStationOutDto>> Handle(OpenDataStationInputDto request, CancellationToken cancellationToken)
         {        
-            var stationServices = new OpenDataStationServices(_httpClientFactory, request.Provider);
-            var stations= await stationServices.GetStations();
+            var stationServices = new OpenDataStationService(_httpClientFactory, request.Provider);
+            var stations= await stationServices.Get();
             return stations;
         }
         

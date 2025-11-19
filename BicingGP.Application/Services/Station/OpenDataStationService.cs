@@ -5,18 +5,18 @@ using System.Net.Http.Headers;
 namespace BicingGP.Application.Services.Station
 {
 
-    public class OpenDataStationServices 
+    public class OpenDataStationService 
     {
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly ProviderOpenData _providerOpenData;
         
-        public OpenDataStationServices(IHttpClientFactory httpClientFactory, ProviderOpenData provider)
+        public OpenDataStationService(IHttpClientFactory httpClientFactory, ProviderOpenData provider)
         {
             _httpClientFactory = httpClientFactory;
             _providerOpenData = provider;
         }
 
-        public async Task<List<OpenDataStationOutDto>> GetStations()
+        public async Task<IEnumerable<OpenDataStationOutDto>> Get()
         {
             var httpcient = _httpClientFactory.CreateClient();
             if (_providerOpenData.Token != null) httpcient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(_providerOpenData.Token);

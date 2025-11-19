@@ -16,7 +16,7 @@ namespace WebApiBicingGP.Controllers
         public CityBikRosarioController(IMediator mediator, DataProvidersSettings providerSettings)
         {
             _mediator = mediator;
-            _providerGeneric = providerSettings.ProviderCityBikRosarioGenerico;            
+            _providerGeneric = providerSettings.ProviderCityBikRosario;            
         }
 
         /// <summary>

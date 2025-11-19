@@ -5,18 +5,18 @@ using System.Net.Http.Headers;
 namespace BicingGP.Application.Services.Status
 {
 
-    public class OpenDataStatusServices 
+    public class OpenDataStatusService 
     {
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly ProviderOpenData ProviderOpenData;
 
-        public OpenDataStatusServices(IHttpClientFactory httpClientFactory, ProviderOpenData provider)
+        public OpenDataStatusService(IHttpClientFactory httpClientFactory, ProviderOpenData provider)
         {
             _httpClientFactory = httpClientFactory;
             ProviderOpenData = provider;
         }
 
-        public async Task<List<OpenDataStatusOutDto>> GetStatus()
+        public async Task<IEnumerable<OpenDataStatusOutDto>> Get()
         {
             var httpcient = _httpClientFactory.CreateClient();
             

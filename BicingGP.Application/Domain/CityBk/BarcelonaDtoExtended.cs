@@ -4,7 +4,7 @@ using BicingGP.DataDomain.CityBik.Barcelona;
 
 namespace BicingGP.Application.Domain.CityBk.Barcelona
 {
-    internal static class DtoExtended
+    internal static class BarcelonaDtoExtended
     {
         internal static List<StatusOutputDtoBarcelona> ToStatusOutDtos(this CityBikRootGeneric root)
         {

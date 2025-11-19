@@ -6,13 +6,13 @@ namespace BicingGP.Application.Providers.CityBik
 {
     public class ProviderCityBikRosario : Provider, IProviderGeneric<StationOutDtoRosario, StatusOutputDtoRosario>
     {
-        public List<StationOutDtoRosario> ConvertToStationOutDtos(string response)
+        public IEnumerable<StationOutDtoRosario> ConvertToStationOutDtos(string response)
         {
             var root = GenericConvert<CityBikRootGeneric>(response);
             return root!.network!.stations!.Select(c => c.ToStationOutDto()).ToList();
         }
 
-        public List<StatusOutputDtoRosario> ConvertToStatusOutDtos(string response)
+        public IEnumerable<StatusOutputDtoRosario> ConvertToStatusOutDtos(string response)
         {
             var root = GenericConvert<CityBikRootGeneric>(response);
             return root!.network!.stations!.Select(c => c.ToStatusOutDto()).ToList();            

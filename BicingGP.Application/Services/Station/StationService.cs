@@ -3,18 +3,18 @@ using System.Net.Http.Headers;
 
 namespace BicingGP.Application.Services.Station
 {
-    internal class StationServices<TStationOutPut, TStatusOutPut>
+    public class StationService<TStationOutPut, TStatusOutPut>
     {
         private IHttpClientFactory _httpClientFactory;
         private IProviderGeneric<TStationOutPut, TStatusOutPut> _provider;
 
-        public StationServices(IHttpClientFactory httpClientFactory, IProviderGeneric<TStationOutPut,TStatusOutPut> provider)
+        public StationService(IHttpClientFactory httpClientFactory, IProviderGeneric<TStationOutPut,TStatusOutPut> provider)
         {
             _httpClientFactory = httpClientFactory;
             _provider = provider;
         }
 
-        public virtual async Task<List<TStationOutPut>> GetStations()
+        public virtual async Task<IEnumerable<TStationOutPut>> Get()
         {
             var httpcient = _httpClientFactory.CreateClient();
             if (_provider.HasToken) httpcient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(_provider.Token);

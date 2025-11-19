@@ -12,7 +12,7 @@ using NUnit.Framework;
 
 namespace BicingGP.Tests
 {
-    public class StatusSservicesCityBikTests
+    public class StatusServicesCityBikTests
     {
         private IHttpClientFactory httpClientFactory;
 
@@ -36,10 +36,10 @@ namespace BicingGP.Tests
                 UrlGetStatus = "http://api.citybik.es/v2/networks/bicing"
             };
             
-            var statusServices = new StatusServices<StationOutDtoBarcelona,StatusOutputDtoBarcelona>(httpClientFactory, provider);
+            var statusServices = new StatusService<StationOutDtoBarcelona,StatusOutputDtoBarcelona>(httpClientFactory, provider);
 
             //Act
-            var stations = statusServices.GetStatus();
+            var stations = statusServices.Get();
 
             //Assert
             var expected = stations.Result.Count();
@@ -58,10 +58,10 @@ namespace BicingGP.Tests
                 UrlGetStatus = "http://api.citybik.es/v2/networks/mibicitubici"
             };
 
-            var statusServices = new StatusServices<StationOutDtoRosario, StatusOutputDtoRosario>(httpClientFactory, provider);
+            var statusServices = new StatusService<StationOutDtoRosario, StatusOutputDtoRosario>(httpClientFactory, provider);
 
             //Act
-            var stations = statusServices.GetStatus();
+            var stations = statusServices.Get();
 
             //Assert
             var expected = stations.Result.Count();
@@ -81,10 +81,10 @@ namespace BicingGP.Tests
                 UrlGetStatus = "http://api.citybik.es/v2/networks/velib"
             };
 
-            var statusServices = new StatusServices<StationOutDtoParis, StatusOutputDtoParis>(httpClientFactory, provider);
+            var statusServices = new StatusService<StationOutDtoParis, StatusOutputDtoParis>(httpClientFactory, provider);
 
             //Act
-            var stations = statusServices.GetStatus();
+            var stations = statusServices.Get();
             
             //Assert
             var expected = stations.Result.Count();

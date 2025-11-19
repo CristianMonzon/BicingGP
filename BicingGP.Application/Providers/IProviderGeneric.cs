@@ -1,10 +1,8 @@
 ﻿namespace BicingGP.Application.Providers
-{
-    
+{    
     public interface IProviderGeneric<TStation,TStatus> : IProvider
     {
-        List<TStation> ConvertToStationOutDtos(string response);
-
-        List<TStatus> ConvertToStatusOutDtos(string response);
+        IEnumerable<TStation> ConvertToStationOutDtos(string response);
+        IEnumerable<TStatus> ConvertToStatusOutDtos(string response);
     }
 }

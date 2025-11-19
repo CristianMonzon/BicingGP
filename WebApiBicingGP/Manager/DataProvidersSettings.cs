@@ -9,14 +9,9 @@ namespace WebApiBicingGP.Manager
         private readonly IDataProviderFactory _dataProviderFactory;
 
         public ProviderOpenData ProviderOpenDataBarcelona { get; private set; } 
-
-        //public ProviderCityBikBarcelona ProviderCityBikBarcelona { get; private set; } 
-        //public ProviderCityBikParis ProviderCityBikParis { get; private set; } 
-        //public ProviderCityBikRosario ProviderCityBikRosario { get; private set; } 
-
-        public ProviderCityBikBarcelona ProviderCityBikBarcelonaGenerico { get; private set; } 
-        public ProviderCityBikRosario ProviderCityBikRosarioGenerico { get; private set; } 
-        public ProviderCityBikParis ProviderCityBikParisGenerico { get; private set; } 
+        public ProviderCityBikBarcelona ProviderCityBikBarcelona { get; private set; } 
+        public ProviderCityBikRosario ProviderCityBikRosario { get; private set; } 
+        public ProviderCityBikParis ProviderCityBikParis { get; private set; } 
 
         public DataProvidersSettings(IConfiguration configuration, IDataProviderFactory factory)
         {
@@ -24,17 +19,10 @@ namespace WebApiBicingGP.Manager
             _dataProviderFactory = factory;
             
             ProviderOpenDataBarcelona = CreateProvider<ProviderOpenData>("OpenDataBarcelona");
-            
-            //ProviderCityBikBarcelona = CreateProvider<ProviderCityBikBarcelona>("CityBikBarcelona");
-            ProviderCityBikBarcelonaGenerico = CreateProvider<ProviderCityBikBarcelona>("CityBikBarcelona");
-            
-            ProviderCityBikRosarioGenerico = CreateProvider<ProviderCityBikRosario>("CityBikRosario");
-            //ProviderCityBikRosario = CreateProvider<ProviderCityBikRosario>("CityBikRosario");
-            
-            //ProviderCityBikParis = CreateProvider<ProviderCityBikParis>("CityBikVelib");
-            ProviderCityBikParisGenerico = CreateProvider<ProviderCityBikParis>("CityBikVelib");
+            ProviderCityBikBarcelona = CreateProvider<ProviderCityBikBarcelona>("CityBikBarcelona");
+            ProviderCityBikRosario = CreateProvider<ProviderCityBikRosario>("CityBikRosario");
+            ProviderCityBikParis = CreateProvider<ProviderCityBikParis>("CityBikVelib");
         }
-
         private T CreateProvider<T>(string sectionName) where T : class, new ()
         {
             var dataProviderConfig = CreateConfig(sectionName);

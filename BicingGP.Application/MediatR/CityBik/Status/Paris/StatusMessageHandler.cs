@@ -14,8 +14,8 @@ namespace BicingGP.Application.MediatR.CityBik.Status.Paris
 
         public async Task<IEnumerable<StatusOutputDtoParis>> Handle(StatusInputDtoParis request, CancellationToken cancellationToken)
         {
-            var statusServices = new StatusServices<StationOutDtoParis, StatusOutputDtoParis>(_httpClientFactory, request.ProviderGeneric);
-            return await statusServices.GetStatus();
+            var statusServices = new StatusService<StationOutDtoParis, StatusOutputDtoParis>(_httpClientFactory, request.ProviderGeneric);
+            return await statusServices.Get();
         }
     }
 }
