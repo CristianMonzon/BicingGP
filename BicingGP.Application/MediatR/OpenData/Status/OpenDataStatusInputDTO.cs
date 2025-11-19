@@ -3,11 +3,11 @@ using MediatR;
 
 namespace BicingGP.Application.MediatR.OpenData.Status
 {
-    public class OpenDataStatusInputDTO : IRequest<List<OpenDataStatusOutDTO>>
+    public class OpenDataStatusInputDto : IRequest<IEnumerable<OpenDataStatusOutDto>>
     {
         public ProviderOpenData Provider { get; private set; }
 
-        public OpenDataStatusInputDTO(ProviderOpenData provider)
+        public OpenDataStatusInputDto(ProviderOpenData provider)
         {
             Provider = provider;
         }

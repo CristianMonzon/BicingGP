@@ -1,14 +1,15 @@
-﻿using BicingGP.Application.Providers;
+﻿using BicingGP.Application.MediatR.CityBik.Status.Rosario;
+using BicingGP.Application.Providers;
 using MediatR;
 
 namespace BicingGP.Application.MediatR.CityBik.Station.Rosario
 {
 
-    public class StationInputDTORosario : IRequest<List<StationOutDTORosario>>
+    public class StationInputDtoRosario : IRequest<IEnumerable<StationOutDtoRosario>>
     {
-        public IProviderGeneric<StationOutDTORosario> ProviderGeneric { get; set; }
+        public IProviderGeneric<StationOutDtoRosario, StatusOutputDtoRosario> ProviderGeneric { get; set; }
 
-        public StationInputDTORosario(IProviderGeneric<StationOutDTORosario> provider)
+        public StationInputDtoRosario(IProviderGeneric<StationOutDtoRosario, StatusOutputDtoRosario> provider)
         {
             ProviderGeneric = provider;
         }

@@ -1,10 +1,11 @@
-﻿using BicingGP.Application.Services.Station;
+﻿using BicingGP.Application.MediatR.CityBik.Status.Barcelona;
+using BicingGP.Application.Services.Station;
 using MediatR;
 
 namespace BicingGP.Application.MediatR.CityBik.Station.Barcelona
 {
 
-    public class StationMessageBarcelonaHandler : IRequestHandler<StationInputDTOBarcelona, List<StationOutDTOBarcelona>>
+    public class StationMessageBarcelonaHandler : IRequestHandler<StationInputDtoBarcelona, IEnumerable<StationOutDtoBarcelona>>
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
@@ -13,9 +14,9 @@ namespace BicingGP.Application.MediatR.CityBik.Station.Barcelona
             _httpClientFactory = httpClientFactory;
         }
 
-        public async Task<List<StationOutDTOBarcelona>> Handle(StationInputDTOBarcelona request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<StationOutDtoBarcelona>> Handle(StationInputDtoBarcelona request, CancellationToken cancellationToken)
         {         
-            var stationServices = new StationServices<StationOutDTOBarcelona>(_httpClientFactory, request.ProviderGeneric);
+            var stationServices = new StationServices<StationOutDtoBarcelona,StatusOutputDtoBarcelona>(_httpClientFactory, request.ProviderGeneric);
             return await stationServices.GetStations();
         }
     }

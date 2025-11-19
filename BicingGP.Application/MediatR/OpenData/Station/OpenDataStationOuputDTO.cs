@@ -1,6 +1,6 @@
 ﻿namespace BicingGP.Application.MediatR.OpenData.Station
 {
-    public class OpenDataStationOutDTO
+    public class OpenDataStationOutDto
     {
         public string? StationId { get; set; }
         public string? Altitude { get; set; }

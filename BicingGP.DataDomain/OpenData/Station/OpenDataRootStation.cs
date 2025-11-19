@@ -1,6 +1,6 @@
-﻿namespace BicingGP.Application.Domain.Json.OpenData.Station
+﻿namespace BicingGP.DataDomain.OpenData.Station
 {
-    public class OpenDataStation
+    public class OpenDataRootStation
     {
         public int? last_updated { get; set; }        
         public Data? data { get; set; }
