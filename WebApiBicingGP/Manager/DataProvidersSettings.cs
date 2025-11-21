@@ -1,4 +1,5 @@
 ﻿using BicingGP.Application.Providers.CityBik;
+using BicingGP.Application.Providers.MiBiciTuBici;
 using BicingGP.Application.Providers.OpenData;
 
 namespace WebApiBicingGP.Manager
@@ -11,7 +12,8 @@ namespace WebApiBicingGP.Manager
         public ProviderOpenData ProviderOpenDataBarcelona { get; private set; } 
         public ProviderCityBikBarcelona ProviderCityBikBarcelona { get; private set; } 
         public ProviderCityBikRosario ProviderCityBikRosario { get; private set; } 
-        public ProviderCityBikParis ProviderCityBikParis { get; private set; } 
+        public ProviderCityBikParis ProviderCityBikParis { get; private set; }
+        public ProviderMiBiciTuBici ProviderMiBiciTuBici { get; private set; }
 
         public DataProvidersSettings(IConfiguration configuration, IDataProviderFactory factory)
         {
@@ -22,6 +24,8 @@ namespace WebApiBicingGP.Manager
             ProviderCityBikBarcelona = CreateProvider<ProviderCityBikBarcelona>("CityBikBarcelona");
             ProviderCityBikRosario = CreateProvider<ProviderCityBikRosario>("CityBikRosario");
             ProviderCityBikParis = CreateProvider<ProviderCityBikParis>("CityBikVelib");
+            ProviderMiBiciTuBici = CreateProvider<ProviderMiBiciTuBici>("MiBiciTuBici");
+            
         }
         private T CreateProvider<T>(string sectionName) where T : class, new ()
         {

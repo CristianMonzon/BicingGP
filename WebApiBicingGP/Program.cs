@@ -22,12 +22,11 @@ namespace WebApiBicingGP
             builder.Services.AddMediatR(c => c.AsScoped(), typeof(BicingGP.Application.MediatR.CityBik.Station.Rosario.StationInputDtoRosario).Assembly);
             builder.Services.AddMediatR(c => c.AsScoped(), typeof(BicingGP.Application.MediatR.OpenData.Station.OpenDataStationInputDto).Assembly);
             
-            //builder.Services.AddMediatR(c => c.AsScoped(), typeof(BicingGP.Application.MediatR.CityBik.Status.CityBikStatusInputDto).Assembly);
-
             builder.Services.AddMediatR(c => c.AsScoped(), typeof(BicingGP.Application.MediatR.CityBik.Status.Barcelona.StatusInputDtoBarcelona).Assembly);
             builder.Services.AddMediatR(c => c.AsScoped(), typeof(BicingGP.Application.MediatR.CityBik.Status.Paris.StatusInputDtoParis).Assembly);
             builder.Services.AddMediatR(c => c.AsScoped(), typeof(BicingGP.Application.MediatR.CityBik.Status.Rosario.StatusInputDtoRosario).Assembly);
 
+            builder.Services.AddMediatR(c => c.AsScoped(), typeof(BicingGP.Application.MediatR.MiBiciTuBici.Status.StatusInputDto).Assembly);
 
             InjectionDependencies(builder);
 

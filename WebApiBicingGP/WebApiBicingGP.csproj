@@ -20,4 +20,12 @@
     <ProjectReference Include="..\BicingGP.Application\BicingGP.Application.csproj" />    
   </ItemGroup>
 
+  <ItemGroup>
+    <AdditionalFiles Remove="C:\Users\cmonzon\AppData\Roaming\SonarLint for Visual Studio\.global\csharp\SonarLint.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Remove="C:\Users\cmonzon\AppData\Roaming\SonarLint for Visual Studio\.global\csharp\SonarLint.xml" />
+  </ItemGroup>
+
 </Project>

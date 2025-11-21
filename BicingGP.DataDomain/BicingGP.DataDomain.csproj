@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="CityBik\Generic\**" />
+    <EmbeddedResource Remove="CityBik\Generic\**" />
+    <None Remove="CityBik\Generic\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="OpenData\Station\RootStation.cs" />
   </ItemGroup>
 

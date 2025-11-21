@@ -1,7 +1,7 @@
 ﻿namespace BicingGP.Application.MediatR.CityBik.Station.Rosario
 {
     
-    public class StationOutDtoRosario 
+    public class StationOutputDtoRosario 
     {
         public string? StationId { get; set; }
         public string? Name { get; set; }

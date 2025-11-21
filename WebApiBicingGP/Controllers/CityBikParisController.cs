@@ -11,7 +11,7 @@ namespace WebApiBicingGP.Controllers
 {
     [ApiController]
     [Route("api/v1/[Controller]")]
-    public class CityBikParisController : ControllerBaseGeneric<StationOutDtoParis, StatusOutputDtoParis>
+    public class CityBikParisController : ControllerBaseGeneric<StationOutputDtoParis, StatusOutputDtoParis>
     {
         public CityBikParisController(IMediator mediator, DataProvidersSettings providerSettings)
         {
@@ -43,12 +43,12 @@ namespace WebApiBicingGP.Controllers
         /// <returns></returns>
         /// </summary>
         [HttpGet("Station")]
-        public async Task<ActionResult<IEnumerable<StationOutDtoParis>>> GetStation()
+        public async Task<ActionResult<IEnumerable<StationOutputDtoParis>>> GetStation()
         {
             try
             {
                 var response = await _mediator.Send(new StationInputDtoParis(_providerGeneric));
-                var stationResult = new Result<IEnumerable<StationOutDtoParis>>(response);
+                var stationResult = new Result<IEnumerable<StationOutputDtoParis>>(response);
                 return Ok(stationResult.ResultData);
             }
             catch (Exception ex)
