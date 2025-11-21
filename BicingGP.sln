@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BicingGP.Application", "Bic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BicingGP.DataDomain", "BicingGP.DataDomain\BicingGP.DataDomain.csproj", "{8407C859-4FF8-9A6F-5649-6724EC5CCE3C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BicingGP.DataProvider", "BicingGP.DataProvider\BicingGP.DataProvider.csproj", "{2281535A-F1BC-4666-AACE-F787410C7E34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{8407C859-4FF8-9A6F-5649-6724EC5CCE3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8407C859-4FF8-9A6F-5649-6724EC5CCE3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8407C859-4FF8-9A6F-5649-6724EC5CCE3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2281535A-F1BC-4666-AACE-F787410C7E34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2281535A-F1BC-4666-AACE-F787410C7E34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2281535A-F1BC-4666-AACE-F787410C7E34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2281535A-F1BC-4666-AACE-F787410C7E34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

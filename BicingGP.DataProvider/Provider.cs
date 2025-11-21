@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace BicingGP.Application.Providers
+namespace BicingGP.DataProvider.Providers
 {
 
     public abstract class Provider :IProvider
@@ -8,6 +8,9 @@ namespace BicingGP.Application.Providers
         public string UrlGetStation { get; set; }
         public string UrlGetStatus { get; set; }
         public string? Token { get; set; }
+
+        public string? City { get; set; }
+        public string? Country { get; set; }
 
         public bool HasToken
         {

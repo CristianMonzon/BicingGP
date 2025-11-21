@@ -1,11 +1,10 @@
-﻿using BicingGP.Application.Providers.CityBik;
-using BicingGP.Application.MediatR.CityBik.Station.Paris;
+﻿using BicingGP.Application.MediatR.CityBik.Station.Paris;
+using BicingGP.Application.MediatR.CityBik.Status.Paris;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using WebApiBicingGP.Domain;
 using WebApiBicingGP.Manager;
-using BicingGP.Application.MediatR.CityBik.Status.Paris;
 
 namespace WebApiBicingGP.Controllers
 {

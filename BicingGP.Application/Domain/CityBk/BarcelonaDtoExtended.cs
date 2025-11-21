@@ -31,14 +31,14 @@ namespace BicingGP.Application.Domain.CityBk.Barcelona
             };
         }
 
-        internal static List<StationOutDtoBarcelona> ToStationOutDtos(this BicingGP.DataDomain.CityBik.Barcelona.CityBikRootGeneric root)
+        internal static List<StationOutputDtoBarcelona> ToStationOutDtos(this BicingGP.DataDomain.CityBik.Barcelona.CityBikRootGeneric root)
         {
             return root!.network!.stations!.Select(c => c.ToStationOutDto()).ToList();
         }
 
-        internal static StationOutDtoBarcelona ToStationOutDto(this BicingGP.DataDomain.CityBik.Barcelona.Station station)
+        internal static StationOutputDtoBarcelona ToStationOutDto(this BicingGP.DataDomain.CityBik.Barcelona.Station station)
         {
-            return new StationOutDtoBarcelona()
+            return new StationOutputDtoBarcelona()
             {
                 StationId = station!.extra!.uid,
                 Name = station.name,

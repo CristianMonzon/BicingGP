@@ -1,8 +1,7 @@
-﻿using BicingGP.Application.Providers;
+﻿using BicingGP.DataProvider.Providers;
 using MediatR;
 
 namespace BicingGP.Application.MediatR.MiBiciTuBici.Status;
-
 
 public class StatusInputDto : IRequest<IEnumerable<StatusOutputDto>>
 {

@@ -1,6 +1,5 @@
-﻿
-using BicingGP.Application.MediatR.CityBik.Status.Paris;
-using BicingGP.Application.Providers;
+﻿using BicingGP.Application.MediatR.CityBik.Status.Paris;
+using BicingGP.DataProvider.Providers;
 using MediatR;
 
 namespace BicingGP.Application.MediatR.CityBik.Station.Paris
