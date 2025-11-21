@@ -6,9 +6,9 @@ namespace BicingGP.Application.MediatR.CityBik.Status.Paris
 {
     public class StatusInputDtoParis : IRequest<IEnumerable<StatusOutputDtoParis>>
     {
-        public IProviderGeneric<StationOutDtoParis, StatusOutputDtoParis> ProviderGeneric { get; set; }
+        public IProviderGeneric<StationOutputDtoParis, StatusOutputDtoParis> ProviderGeneric { get; set; }
 
-        public StatusInputDtoParis(IProviderGeneric<StationOutDtoParis, StatusOutputDtoParis> provider)
+        public StatusInputDtoParis(IProviderGeneric<StationOutputDtoParis, StatusOutputDtoParis> provider)
         {
             ProviderGeneric = provider;
         }

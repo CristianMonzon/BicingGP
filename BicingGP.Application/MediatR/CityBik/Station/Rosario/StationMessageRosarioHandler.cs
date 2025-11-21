@@ -5,7 +5,7 @@ using MediatR;
 namespace BicingGP.Application.MediatR.CityBik.Station.Rosario
 {
 
-    public class StationMessageRosarioHandler : IRequestHandler<StationInputDtoRosario, IEnumerable<StationOutDtoRosario>>
+    public class StationMessageRosarioHandler : IRequestHandler<StationInputDtoRosario, IEnumerable<StationOutputDtoRosario>>
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
@@ -14,9 +14,9 @@ namespace BicingGP.Application.MediatR.CityBik.Station.Rosario
             _httpClientFactory = httpClientFactory;
         }
 
-        public async Task<IEnumerable<StationOutDtoRosario>> Handle(StationInputDtoRosario request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<StationOutputDtoRosario>> Handle(StationInputDtoRosario request, CancellationToken cancellationToken)
         {            
-            var stationServices = new StationService<StationOutDtoRosario, StatusOutputDtoRosario>(_httpClientFactory, request.ProviderGeneric);            
+            var stationServices = new StationService<StationOutputDtoRosario, StatusOutputDtoRosario>(_httpClientFactory, request.ProviderGeneric);            
             return await stationServices.Get();
         }
     }

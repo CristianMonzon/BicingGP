@@ -1,17 +1,16 @@
 ﻿using BicingGP.Application.MediatR.CityBik.Station.Paris;
 using BicingGP.Application.MediatR.CityBik.Status.Paris;
-using BicingGP.DataDomain.CityBik.Paris;
 
 namespace BicingGP.Application.Domain.CityBk.Paris
 {
     internal static class ParisDtoExtended
     {
-        internal static List<StatusOutputDtoParis> ToStatusOutDtos(this CityBikRootGeneric root)
+        internal static List<StatusOutputDtoParis> ToStatusOutDtos(this BicingGP.DataDomain.CityBik.Paris.CityBikRootGeneric root)
         {
             return root!.network!.stations!.Select(c => c.ToStatusOutDto()).ToList();
         }
 
-        internal static StatusOutputDtoParis ToStatusOutDto(this Station station)
+        internal static StatusOutputDtoParis ToStatusOutDto(this BicingGP.DataDomain.CityBik.Paris.Station station)
         {
             return new StatusOutputDtoParis()
             {
@@ -36,14 +35,14 @@ namespace BicingGP.Application.Domain.CityBk.Paris
             };
         }
 
-        internal static List<StationOutDtoParis> ToStationOutDtos(this CityBikRootGeneric root)
+        internal static List<StationOutputDtoParis> ToStationOutDtos(this BicingGP.DataDomain.CityBik.Paris.CityBikRootGeneric root)
         {
             return root!.network!.stations!.Select(c => c.ToStationOutDto()).ToList();
         }
 
-        internal static StationOutDtoParis ToStationOutDto(this Station station)
+        internal static StationOutputDtoParis ToStationOutDto(this BicingGP.DataDomain.CityBik.Paris.Station station)
         {
-            return new StationOutDtoParis()
+            return new StationOutputDtoParis()
             {
 
                 Id = station!.extra!.uid,

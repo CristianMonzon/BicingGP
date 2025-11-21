@@ -5,6 +5,7 @@ using BicingGP.Application.MediatR.CityBik.Status.Barcelona;
 using BicingGP.Application.MediatR.CityBik.Status.Paris;
 using BicingGP.Application.MediatR.CityBik.Status.Rosario;
 using BicingGP.Application.Providers.CityBik;
+using BicingGP.Application.Providers.MiBiciTuBici;
 using BicingGP.Application.Services.Status;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
@@ -58,7 +59,7 @@ namespace BicingGP.Tests
                 UrlGetStatus = "http://api.citybik.es/v2/networks/mibicitubici"
             };
 
-            var statusServices = new StatusService<StationOutDtoRosario, StatusOutputDtoRosario>(httpClientFactory, provider);
+            var statusServices = new StatusService<StationOutputDtoRosario, StatusOutputDtoRosario>(httpClientFactory, provider);
 
             //Act
             var stations = statusServices.Get();
@@ -81,11 +82,34 @@ namespace BicingGP.Tests
                 UrlGetStatus = "http://api.citybik.es/v2/networks/velib"
             };
 
-            var statusServices = new StatusService<StationOutDtoParis, StatusOutputDtoParis>(httpClientFactory, provider);
+            var statusServices = new StatusService<StationOutputDtoParis, StatusOutputDtoParis>(httpClientFactory, provider);
 
             //Act
             var stations = statusServices.Get();
             
+            //Assert
+            var expected = stations.Result.Count();
+            var result = (expected > 1);
+
+            result.Should().Be(result, $"Total number of stations {expected}");
+        }
+
+        [Test]
+        public void MiBiciTuBici_StatusService_GetStatus_MoreThanOne()
+        {
+            //Arrange
+            Setup();
+            var provider = new ProviderMiBiciTuBici()
+            {
+                UrlGetStatus = "https://www.mibicitubici.gob.ar/opendata/station_status.json"
+            };
+                
+            var statusServices = new StatusService<BicingGP.Application.MediatR.MiBiciTuBici.Station.StationOutputDto
+                , BicingGP.Application.MediatR.MiBiciTuBici.Status.StatusOutputDto>(httpClientFactory, provider);
+
+            //Act
+            var stations = statusServices.Get();
+
             //Assert
             var expected = stations.Result.Count();
             var result = (expected > 1);

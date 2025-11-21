@@ -29,14 +29,14 @@ namespace BicingGP.Application.Domain.CityBk.Rosario
             };
         }
 
-        internal static List<StationOutDtoRosario> ToStationOutDtos(this CityBikRootGeneric root)
+        internal static List<StationOutputDtoRosario> ToStationOutDtos(this CityBikRootGeneric root)
         {
             return root!.network!.stations!.Select(c => c.ToStationOutDto()).ToList();
         }
 
-        internal static StationOutDtoRosario ToStationOutDto(this Station station)
+        internal static StationOutputDtoRosario ToStationOutDto(this Station station)
         {
-            return new StationOutDtoRosario()
+            return new StationOutputDtoRosario()
             {
                 StationId = station.extra!.uid.ToString(),
                 Name = station.name,

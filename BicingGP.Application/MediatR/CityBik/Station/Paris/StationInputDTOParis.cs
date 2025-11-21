@@ -6,11 +6,11 @@ using MediatR;
 namespace BicingGP.Application.MediatR.CityBik.Station.Paris
 {
         
-    public class StationInputDtoParis : IRequest<IEnumerable<StationOutDtoParis>>
+    public class StationInputDtoParis : IRequest<IEnumerable<StationOutputDtoParis>>
     {       
-        public IProviderGeneric<StationOutDtoParis, StatusOutputDtoParis> ProviderGeneric{ get; set; }
+        public IProviderGeneric<StationOutputDtoParis, StatusOutputDtoParis> ProviderGeneric{ get; set; }
 
-        public StationInputDtoParis(IProviderGeneric<StationOutDtoParis, StatusOutputDtoParis> provider)
+        public StationInputDtoParis(IProviderGeneric<StationOutputDtoParis, StatusOutputDtoParis> provider)
         {
             ProviderGeneric = provider;
         }
