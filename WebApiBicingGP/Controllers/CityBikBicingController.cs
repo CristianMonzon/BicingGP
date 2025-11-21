@@ -1,5 +1,4 @@
-﻿using BicingGP.Application.Providers.CityBik;
-using BicingGP.Application.MediatR.CityBik.Station.Barcelona;
+﻿using BicingGP.Application.MediatR.CityBik.Station.Barcelona;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -11,7 +10,7 @@ namespace WebApiBicingGP.Controllers
 {
     [ApiController]
     [Route("api/v1/[Controller]")]
-    public class CityBikBicingController : ControllerBaseGeneric<StationOutDtoBarcelona,StatusOutputDtoBarcelona>
+    public class CityBikBicingController : ControllerBaseGeneric<StationOutputDtoBarcelona,StatusOutputDtoBarcelona>
     {
         public CityBikBicingController(IMediator mediator, DataProvidersSettings providerSettings)
         {
@@ -43,12 +42,12 @@ namespace WebApiBicingGP.Controllers
         /// <returns></returns>
         /// </summary>
         [HttpGet("Station")]
-        public async Task<ActionResult<IEnumerable<StationOutDtoBarcelona>>> GetStation()
+        public async Task<ActionResult<IEnumerable<StationOutputDtoBarcelona>>> GetStation()
         {
             try
             {            
                 var response = await _mediator.Send(new StationInputDtoBarcelona(_providerGeneric));                
-                var stationResult = new Result<IEnumerable<StationOutDtoBarcelona>>(response);
+                var stationResult = new Result<IEnumerable<StationOutputDtoBarcelona>>(response);
                 return Ok(stationResult.ResultData);                
             }
             catch (Exception ex)

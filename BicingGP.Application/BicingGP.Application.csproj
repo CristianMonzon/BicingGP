@@ -4,6 +4,9 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <AssemblyVersion>1.1.0</AssemblyVersion>
+    <FileVersion>1.1.0</FileVersion>
+    <RepositoryUrl>https://github.com/CristianMonzon/BicingGP</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,6 +24,8 @@
     <Compile Remove="MediatR\CityBik\Status\StatusMessageHandler.cs" />
     <Compile Remove="MediatR\InputDtoBase.cs" />
     <Compile Remove="MediatR\MediaTrMessage.cs" />
+    <Compile Remove="Providers\IProvider.cs" />
+    <Compile Remove="Providers\Provider.cs" />
     <Compile Remove="Services\OldStationServices.cs" />
   </ItemGroup>
 
@@ -36,11 +41,12 @@
   <ItemGroup>
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BicingGP.DataDomain\BicingGP.DataDomain.csproj" />
+    <ProjectReference Include="..\BicingGP.DataProvider\BicingGP.DataProvider.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,4 @@
-﻿namespace BicingGP.Application.Providers
+﻿namespace BicingGP.DataProvider.Providers
 {
     public interface IProvider
     {                
@@ -6,5 +6,8 @@
         string UrlGetStatus { get; set; }
         string? Token { get; set; }
         bool HasToken { get; }
+
+        string? City { get; set; }
+        string? Country { get; set; }
     }    
 }

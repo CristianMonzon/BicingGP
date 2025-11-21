@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BicingGP.Application\BicingGP.Application.csproj" />
+    <ProjectReference Include="..\BicingGP.DataProvider\BicingGP.DataProvider.csproj" />
     <ProjectReference Include="..\WebApiBicingGP\WebApiBicingGP.csproj" />
   </ItemGroup>
 

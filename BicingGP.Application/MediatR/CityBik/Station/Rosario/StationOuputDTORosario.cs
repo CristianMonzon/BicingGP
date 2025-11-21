@@ -1,7 +1,7 @@
 ﻿namespace BicingGP.Application.MediatR.CityBik.Station.Rosario
 {
     
-    public class StationOutDtoRosario 
+    public class StationOutputDtoRosario 
     {
         public string? StationId { get; set; }
         public string? Name { get; set; }
@@ -19,7 +19,7 @@
         public int? LastUpdate { get; set; }
         public string? Adress { get; set; }
 
-        public List<String>? Payment { get; set; }
+        public List<string>? Payment { get; set; }
 
         public bool? PaymentTerminal { get; set; }
 

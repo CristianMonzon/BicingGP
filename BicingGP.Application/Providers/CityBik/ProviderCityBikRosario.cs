@@ -2,11 +2,11 @@
 using BicingGP.Application.MediatR.CityBik.Station.Rosario;
 using BicingGP.Application.MediatR.CityBik.Status.Rosario;
 
-namespace BicingGP.Application.Providers.CityBik
+namespace BicingGP.DataProvider.Providers.CityBik
 {
-    public class ProviderCityBikRosario : Provider, IProviderGeneric<StationOutDtoRosario, StatusOutputDtoRosario>
+    public class ProviderCityBikRosario : Provider, IProviderGeneric<StationOutputDtoRosario, StatusOutputDtoRosario>
     {
-        public IEnumerable<StationOutDtoRosario> ConvertToStationOutDtos(string response)
+        public IEnumerable<StationOutputDtoRosario> ConvertToStationOutDtos(string response)
         {
             var root = GenericConvert<CityBikRootGeneric>(response);
             return root!.network!.stations!.Select(c => c.ToStationOutDto()).ToList();
