@@ -1,6 +1,5 @@
 ﻿using BicingGP.Application.MediatR.CityBik.Station.Rosario;
 using BicingGP.Application.MediatR.CityBik.Status.Rosario;
-using BicingGP.Application.Providers.CityBik;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;

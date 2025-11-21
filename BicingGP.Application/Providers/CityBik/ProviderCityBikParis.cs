@@ -2,6 +2,7 @@
 using BicingGP.Application.MediatR.CityBik.Station.Paris;
 using BicingGP.Application.MediatR.CityBik.Status.Paris;
 using BicingGP.DataDomain.CityBik.Paris;
+using BicingGP.DataProvider.Providers;
 
 namespace BicingGP.Application.Providers.CityBik
 {

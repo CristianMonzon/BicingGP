@@ -1,6 +1,7 @@
 ﻿using BicingGP.Application.Domain.MiBiciTuBici;
 using BicingGP.Application.MediatR.MiBiciTuBici.Station;
 using BicingGP.Application.MediatR.MiBiciTuBici.Status;
+using BicingGP.DataProvider.Providers;
 
 
 namespace BicingGP.Application.Providers.MiBiciTuBici

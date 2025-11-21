@@ -19,7 +19,7 @@
         public int? LastUpdate { get; set; }
         public string? Adress { get; set; }
 
-        public List<String>? Payment { get; set; }
+        public List<string>? Payment { get; set; }
 
         public bool? PaymentTerminal { get; set; }
 

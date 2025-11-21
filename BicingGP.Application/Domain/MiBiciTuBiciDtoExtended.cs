@@ -1,4 +1,5 @@
 ﻿using BicingGP.Application.MediatR.MiBiciTuBici.Status;
+using BicingGP.Application.MediatR.MiBiciTuBici.Station;
 
 namespace BicingGP.Application.Domain.MiBiciTuBici
 {
@@ -9,9 +10,9 @@ namespace BicingGP.Application.Domain.MiBiciTuBici
             return status!.data!.stations!.Select(c => c.ToStatusOutDto()).ToList();
         }
 
-        public static MediatR.MiBiciTuBici.Status.StatusOutputDto ToStatusOutDto(this DataDomain.MiBiciTuBici.Status.Station station)
+        public static StatusOutputDto ToStatusOutDto(this DataDomain.MiBiciTuBici.Status.Station station)
         {
-            return new MediatR.MiBiciTuBici.Status.StatusOutputDto()
+            return new StatusOutputDto()
             {
                 StationId = station.station_id,
                 NumBikesAvailable = station.num_bikes_available,
@@ -25,14 +26,14 @@ namespace BicingGP.Application.Domain.MiBiciTuBici
             };
         }
 
-        public static List<MediatR.MiBiciTuBici.Station.StationOutputDto> ToStationOutDtos(this DataDomain.MiBiciTuBici.Station.MiBiciTuBiciRootStation station)
+        public static List<StationOutputDto> ToStationOutDtos(this DataDomain.MiBiciTuBici.Station.MiBiciTuBiciRootStation station)
         {
             return station!.data!.stations!.Select(c => c.ToStationOutDto()).ToList();
         }
 
-        private static MediatR.MiBiciTuBici.Station.StationOutputDto ToStationOutDto(this DataDomain.MiBiciTuBici.Station.Station station)
+        private static StationOutputDto ToStationOutDto(this DataDomain.MiBiciTuBici.Station.Station station)
         {
-            return new MediatR.MiBiciTuBici.Station.StationOutputDto()
+            return new StationOutputDto()
             {
                 StationId = station.station_id,
                 Name = station.name,

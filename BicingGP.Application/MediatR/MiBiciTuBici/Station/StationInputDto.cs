@@ -1,15 +1,15 @@
-﻿using BicingGP.Application.Providers;
+﻿using BicingGP.DataProvider.Providers;
 using MediatR;
 
-namespace BicingGP.Application.MediatR.MiBiciTuBici.Station;
-
-
-public class StationInputDto : IRequest<IEnumerable<StationOutputDto>>
+namespace BicingGP.Application.MediatR.MiBiciTuBici.Station
 {
-    public IProviderGeneric<StationOutputDto, Status.StatusOutputDto> ProviderGeneric { get; set; }
-
-    public StationInputDto(IProviderGeneric<StationOutputDto, Status.StatusOutputDto> provider)
+    public class StationInputDto : IRequest<IEnumerable<StationOutputDto>>
     {
-        ProviderGeneric = provider;
+        public IProviderGeneric<StationOutputDto, Status.StatusOutputDto> ProviderGeneric { get; set; }
+
+        public StationInputDto(IProviderGeneric<StationOutputDto, Status.StatusOutputDto> provider)
+        {
+            ProviderGeneric = provider;
+        }
     }
 }

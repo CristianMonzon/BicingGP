@@ -3,6 +3,7 @@ using BicingGP.Application.MediatR.OpenData.Station;
 using BicingGP.Application.MediatR.OpenData.Status;
 using BicingGP.DataDomain.OpenData.Station;
 using BicingGP.DataDomain.OpenData.Status;
+using BicingGP.DataProvider.Providers;
 
 namespace BicingGP.Application.Providers.OpenData
 {

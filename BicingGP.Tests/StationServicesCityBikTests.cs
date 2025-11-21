@@ -7,6 +7,7 @@ using BicingGP.Application.MediatR.CityBik.Status.Rosario;
 using BicingGP.Application.Providers.CityBik;
 using BicingGP.Application.Providers.MiBiciTuBici;
 using BicingGP.Application.Services.Station;
+using BicingGP.DataProvider.Providers.CityBik;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
@@ -37,7 +38,7 @@ namespace BicingGP.Tests
                 UrlGetStation = "http://api.citybik.es/v2/networks/bicing"
             };
             
-            var stationServices = new StationService<StationOutDtoBarcelona,StatusOutputDtoBarcelona>(httpClientFactory, provider);
+            var stationServices = new StationService<StationOutputDtoBarcelona,StatusOutputDtoBarcelona>(httpClientFactory, provider);
 
             //Act
             var stations = stationServices.Get();
