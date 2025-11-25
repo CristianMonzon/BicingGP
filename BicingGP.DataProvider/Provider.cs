@@ -19,7 +19,7 @@ namespace BicingGP.DataProvider.Providers
                 return !String.IsNullOrEmpty(Token);
             }
         }
-               
+
         public T? GenericConvert<T>(string json) where T : class
         {
             if (string.IsNullOrEmpty(json))

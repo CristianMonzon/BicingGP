@@ -1,27 +1,29 @@
 ﻿using BicingGP.DataProvider.Providers;
-using System.Net.Http.Headers;
 
 namespace BicingGP.Application.Services.Station
 {
     public class StationService<TStationOutPut, TStatusOutPut>
     {
-        private IHttpClientFactory _httpClientFactory;
-        private IProviderGeneric<TStationOutPut, TStatusOutPut> _provider;
+        private readonly IHttpService _httpService;
+        private readonly IProviderGeneric<TStationOutPut, TStatusOutPut> _providerGeneric;
+        private readonly IStationConverter<TStationOutPut> _stationConvert;
 
-        public StationService(IHttpClientFactory httpClientFactory, IProviderGeneric<TStationOutPut,TStatusOutPut> provider)
+        public StationService(IHttpService httpService, IProviderGeneric<TStationOutPut, TStatusOutPut> providerGeneric)
         {
-            _httpClientFactory = httpClientFactory;
-            _provider = provider;
+            _httpService = httpService;
+            _providerGeneric = providerGeneric;
+        }
+
+        public StationService(IHttpService httpService, IStationConverter<TStationOutPut> stationConvert)
+        {
+            _httpService = httpService;
+            _stationConvert = stationConvert;
         }
 
         public virtual async Task<IEnumerable<TStationOutPut>> Get()
         {
-            var httpcient = _httpClientFactory.CreateClient();
-            if (_provider.HasToken) httpcient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(_provider.Token);
-
-            var response = await httpcient.GetStringAsync(_provider.UrlGetStation);
-            var result = _provider.ConvertToStationOutDtos(response);
-            
+            var response = await _httpService.GetStringAsync(_providerGeneric.UrlGetStation, _providerGeneric.Token);
+            var result = _providerGeneric.ConvertToStationOutDtos(response);
             return result;
 
         }

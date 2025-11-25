@@ -5,12 +5,12 @@ namespace BicingGP.Application.Domain.MiBiciTuBici
 {
     public static class MiBiciTuBiciDtoExtended
     {
-        public static List<StatusOutputDto> ToStatusOutDtos(this DataDomain.MiBiciTuBici.Status.MiBiciTuBiciRootStatus status)
+        public static List<StatusOutputDto> ToStatusOutDtos(this DataProvider.MiBiciTuBici.Status.MiBiciTuBiciRootStatus status)
         {
             return status!.data!.stations!.Select(c => c.ToStatusOutDto()).ToList();
         }
 
-        public static StatusOutputDto ToStatusOutDto(this DataDomain.MiBiciTuBici.Status.Station station)
+        public static StatusOutputDto ToStatusOutDto(this DataProvider.MiBiciTuBici.Status.Station station)
         {
             return new StatusOutputDto()
             {
@@ -26,12 +26,12 @@ namespace BicingGP.Application.Domain.MiBiciTuBici
             };
         }
 
-        public static List<StationOutputDto> ToStationOutDtos(this DataDomain.MiBiciTuBici.Station.MiBiciTuBiciRootStation station)
+        public static List<StationOutputDto> ToStationOutDtos(this DataProvider.MiBiciTuBici.Station.MiBiciTuBiciRootStation station)
         {
             return station!.data!.stations!.Select(c => c.ToStationOutDto()).ToList();
         }
 
-        private static StationOutputDto ToStationOutDto(this DataDomain.MiBiciTuBici.Station.Station station)
+        private static StationOutputDto ToStationOutDto(this DataProvider.MiBiciTuBici.Station.Station station)
         {
             return new StationOutputDto()
             {

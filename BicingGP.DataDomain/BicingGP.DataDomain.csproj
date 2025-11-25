@@ -9,21 +9,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="CityBik\Generic\**" />
-    <EmbeddedResource Remove="CityBik\Generic\**" />
-    <None Remove="CityBik\Generic\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="OpenData\Station\RootStation.cs" />
+    <Compile Remove="CityBik\**" />
+    <Compile Remove="MibiciTuBici\**" />
+    <Compile Remove="OpenData\**" />
+    <EmbeddedResource Remove="CityBik\**" />
+    <EmbeddedResource Remove="MibiciTuBici\**" />
+    <EmbeddedResource Remove="OpenData\**" />
+    <None Remove="CityBik\**" />
+    <None Remove="MibiciTuBici\**" />
+    <None Remove="OpenData\**" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="OpenData\Status\" />
   </ItemGroup>
 
   <ItemGroup>

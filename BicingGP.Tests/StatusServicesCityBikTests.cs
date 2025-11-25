@@ -6,6 +6,7 @@ using BicingGP.Application.MediatR.CityBik.Status.Paris;
 using BicingGP.Application.MediatR.CityBik.Status.Rosario;
 using BicingGP.Application.Providers.CityBik;
 using BicingGP.Application.Providers.MiBiciTuBici;
+using BicingGP.Application.Services;
 using BicingGP.Application.Services.Status;
 using BicingGP.DataProvider.Providers.CityBik;
 using FluentAssertions;
@@ -16,6 +17,7 @@ namespace BicingGP.Tests
 {
     public class StatusServicesCityBikTests
     {
+        private IHttpService httpService;
         private IHttpClientFactory httpClientFactory;
 
         [SetUp]
@@ -26,6 +28,7 @@ namespace BicingGP.Tests
             .BuildServiceProvider();
 
             httpClientFactory = serviceProvider.GetRequiredService<IHttpClientFactory>();
+            httpService = new HttpService(httpClientFactory);
         }
 
         [Test]
@@ -38,7 +41,7 @@ namespace BicingGP.Tests
                 UrlGetStatus = "http://api.citybik.es/v2/networks/bicing"
             };
             
-            var statusServices = new StatusService<StationOutputDtoBarcelona,StatusOutputDtoBarcelona>(httpClientFactory, provider);
+            var statusServices = new StatusService<StationOutputDtoBarcelona,StatusOutputDtoBarcelona>(httpService, provider);
 
             //Act
             var stations = statusServices.Get();
@@ -60,7 +63,7 @@ namespace BicingGP.Tests
                 UrlGetStatus = "http://api.citybik.es/v2/networks/mibicitubici"
             };
 
-            var statusServices = new StatusService<StationOutputDtoRosario, StatusOutputDtoRosario>(httpClientFactory, provider);
+            var statusServices = new StatusService<StationOutputDtoRosario, StatusOutputDtoRosario>(httpService, provider);
 
             //Act
             var stations = statusServices.Get();
@@ -83,7 +86,7 @@ namespace BicingGP.Tests
                 UrlGetStatus = "http://api.citybik.es/v2/networks/velib"
             };
 
-            var statusServices = new StatusService<StationOutputDtoParis, StatusOutputDtoParis>(httpClientFactory, provider);
+            var statusServices = new StatusService<StationOutputDtoParis, StatusOutputDtoParis>(httpService, provider);
 
             //Act
             var stations = statusServices.Get();
@@ -106,7 +109,7 @@ namespace BicingGP.Tests
             };
                 
             var statusServices = new StatusService<BicingGP.Application.MediatR.MiBiciTuBici.Station.StationOutputDto
-                , BicingGP.Application.MediatR.MiBiciTuBici.Status.StatusOutputDto>(httpClientFactory, provider);
+                , BicingGP.Application.MediatR.MiBiciTuBici.Status.StatusOutputDto>(httpService, provider);
 
             //Act
             var stations = statusServices.Get();
