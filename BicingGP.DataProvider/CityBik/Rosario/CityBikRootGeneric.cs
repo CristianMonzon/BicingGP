@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace BicingGP.Application.Domain.CityBk.Rosario
+namespace BicingGP.Application.Domain.CityBik.Rosario
 {
     public class CityBikRootGeneric
     {

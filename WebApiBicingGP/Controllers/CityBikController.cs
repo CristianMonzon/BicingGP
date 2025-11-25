@@ -1,10 +1,10 @@
 ﻿using BicingGP.Application.MediatR.CityBik.Station.Barcelona;
 using BicingGP.Application.MediatR.CityBik.Station.Paris;
+using BicingGP.Application.MediatR.CityBik.Station.Rosario;
 using BicingGP.Application.MediatR.CityBik.Status.Barcelona;
 using BicingGP.Application.MediatR.CityBik.Status.Paris;
 using BicingGP.Application.MediatR.CityBik.Status.Rosario;
-using BicingGP.Application.MediatR.CityBik.Station.Rosario;
-
+using BicingGP.Application.MediatR.MiBiciTuBici.Summary;
 using BicingGP.DataProvider.Providers;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -21,7 +21,6 @@ namespace WebApiBicingGP.Controllers
         IProviderGeneric<StationOutputDtoBarcelona, StatusOutputDtoBarcelona> _providerBarcelona;
         IProviderGeneric<StationOutputDtoParis, StatusOutputDtoParis> _providerParis;
         IProviderGeneric<StationOutputDtoRosario, StatusOutputDtoRosario> _providerRosario;
-        
         public CityBikController(IMediator mediator, DataProvidersSettings providerSettings)
         {
             _providerBarcelona = providerSettings.ProviderCityBikBarcelona;
@@ -146,5 +145,49 @@ namespace WebApiBicingGP.Controllers
             }
         }
 
+        [HttpGet("Rosario/Summary")]
+        public async Task<ActionResult<IEnumerable<StationOutputDtoRosario>>> GetSummaryRosario()
+        {
+            try
+            {
+                var response = await _mediator.Send(new StationRosarioRequest(_providerRosario));
+                var stationResult = new Result<IEnumerable<StationRosarioResponse>>(response);
+                return Ok(stationResult.ResultData);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, $"Error getting sumary {ex.Message}");
+            }
+        }
+
+        [HttpGet("Paris/Summary")]
+        public async Task<ActionResult<IEnumerable<StationOutputDtoParis>>> GetSummaryParis()
+        {
+            try
+            {
+                var response = await _mediator.Send(new StationParisRequest(_providerParis));
+                var stationResult = new Result<IEnumerable<StationParisResponse>>(response);
+                return Ok(stationResult.ResultData);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, $"Error getting sumary {ex.Message}");
+            }
+        }
+
+        [HttpGet("Barcelona/Summary")]
+        public async Task<ActionResult<IEnumerable<StationOutputDtoParis>>> GetSummaryBarcelona()
+        {
+            try
+            {
+                var response = await _mediator.Send(new StationBarcelonaRequest(_providerBarcelona));
+                var stationResult = new Result<IEnumerable<StationBarcelonaResponse>>(response);
+                return Ok(stationResult.ResultData);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, $"Error getting sumary {ex.Message}");
+            }
+        }
     }
 }

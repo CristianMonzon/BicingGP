@@ -1,26 +1,21 @@
 ﻿using BicingGP.DataProvider.Providers;
-using System.Net.Http.Headers;
 
 namespace BicingGP.Application.Services.Status
 {
-
     public class StatusService<TStationOutPut, TStatusOutPut>
-    {
-        protected IHttpClientFactory _httpClientFactory;
+    {		
+		protected IHttpService _httpService;
         protected IProviderGeneric<TStationOutPut, TStatusOutPut> _providerGeneric;
 
-        public StatusService(IHttpClientFactory httpClientFactory, IProviderGeneric<TStationOutPut, TStatusOutPut> providerGeneric)
+        public StatusService(IHttpService httpService, IProviderGeneric<TStationOutPut, TStatusOutPut> providerGeneric)
         {
-            _httpClientFactory = httpClientFactory;
+            _httpService = httpService;
             _providerGeneric = providerGeneric;
         }
 
         public async Task<IEnumerable<TStatusOutPut>> Get()
         {
-            var httpcient = _httpClientFactory.CreateClient();
-            if (_providerGeneric.HasToken) httpcient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(_providerGeneric.Token);
-
-            var response = await httpcient.GetStringAsync(_providerGeneric.UrlGetStatus);
+			var response = await _httpService.GetStringAsync(_providerGeneric.UrlGetStatus, _providerGeneric.Token);
             return _providerGeneric.ConvertToStatusOutDtos(response);
         }
     }

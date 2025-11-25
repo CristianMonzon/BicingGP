@@ -1,26 +1,22 @@
 ﻿using BicingGP.Application.MediatR.MiBiciTuBici.Station;
-
-using BicingGP.Application.Services.Station;
+using BicingGP.Application.Services;
 using BicingGP.Application.Services.Status;
 using MediatR;
-
-
-
 
 namespace BicingGP.Application.MediatR.MiBiciTuBici.Status
 {
     public class StatusMessageHandler : IRequestHandler<StatusInputDto, IEnumerable<StatusOutputDto>>
     {
-        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly IHttpService _httpService;
 
-        public StatusMessageHandler(IHttpClientFactory httpClientFactory)
+        public StatusMessageHandler(IHttpService httpService)
         {
-            _httpClientFactory = httpClientFactory;
+            _httpService = httpService;
         }
 
         public async Task<IEnumerable<StatusOutputDto>> Handle(StatusInputDto request, CancellationToken cancellationToken)
         {
-            var statusService = new StatusService<StationOutputDto, StatusOutputDto>(_httpClientFactory, request.ProviderGeneric);
+            var statusService = new StatusService<StationOutputDto, StatusOutputDto>(_httpService, request.ProviderGeneric);
             return await statusService.Get();
         }
     }

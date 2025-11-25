@@ -1,7 +1,7 @@
 ﻿using BicingGP.Application.MediatR.CityBik.Station.Paris;
 using BicingGP.Application.MediatR.CityBik.Status.Paris;
 
-namespace BicingGP.Application.Domain.CityBk.Paris
+namespace BicingGP.Application.Domain.CityBik.Paris
 {
     internal static class ParisDtoExtended
     {
