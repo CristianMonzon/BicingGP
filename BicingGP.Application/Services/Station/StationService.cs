@@ -3,7 +3,7 @@ using System.Net.Http.Headers;
 
 namespace BicingGP.Application.Services.Station
 {
-    public class StationService<TStationOutPut, TStatusOutPut>
+    public class StationService<TStationOutPut, TStatusOutPut> 
     {
         private IHttpClientFactory _httpClientFactory;
         private IProviderGeneric<TStationOutPut, TStatusOutPut> _provider;

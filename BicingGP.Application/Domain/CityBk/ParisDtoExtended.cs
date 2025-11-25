@@ -5,12 +5,12 @@ namespace BicingGP.Application.Domain.CityBk.Paris
 {
     internal static class ParisDtoExtended
     {
-        internal static List<StatusOutputDtoParis> ToStatusOutDtos(this BicingGP.DataDomain.CityBik.Paris.CityBikRootGeneric root)
+        internal static List<StatusOutputDtoParis> ToStatusOutDtos(this BicingGP.DataProvider.CityBik.Paris.CityBikRootGeneric root)
         {
             return root!.network!.stations!.Select(c => c.ToStatusOutDto()).ToList();
         }
 
-        internal static StatusOutputDtoParis ToStatusOutDto(this BicingGP.DataDomain.CityBik.Paris.Station station)
+        internal static StatusOutputDtoParis ToStatusOutDto(this BicingGP.DataProvider.CityBik.Paris.Station station)
         {
             return new StatusOutputDtoParis()
             {
@@ -35,12 +35,12 @@ namespace BicingGP.Application.Domain.CityBk.Paris
             };
         }
 
-        internal static List<StationOutputDtoParis> ToStationOutDtos(this BicingGP.DataDomain.CityBik.Paris.CityBikRootGeneric root)
+        internal static List<StationOutputDtoParis> ToStationOutDtos(this BicingGP.DataProvider.CityBik.Paris.CityBikRootGeneric root)
         {
             return root!.network!.stations!.Select(c => c.ToStationOutDto()).ToList();
         }
 
-        internal static StationOutputDtoParis ToStationOutDto(this BicingGP.DataDomain.CityBik.Paris.Station station)
+        internal static StationOutputDtoParis ToStationOutDto(this BicingGP.DataProvider.CityBik.Paris.Station station)
         {
             return new StationOutputDtoParis()
             {

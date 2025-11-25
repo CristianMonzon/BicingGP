@@ -11,13 +11,13 @@ namespace BicingGP.Application.Providers.MiBiciTuBici
         
         public IEnumerable<StationOutputDto> ConvertToStationOutDtos(string response)
         {
-            var stations = GenericConvert<BicingGP.DataDomain.MiBiciTuBici.Station.MiBiciTuBiciRootStation>(response);
+            var stations = GenericConvert<DataProvider.MiBiciTuBici.Station.MiBiciTuBiciRootStation>(response);
             return stations!.ToStationOutDtos();
         }
 
         public IEnumerable<StatusOutputDto> ConvertToStatusOutDtos(string response)
         {
-            var status = GenericConvert<BicingGP.DataDomain.MiBiciTuBici.Status.MiBiciTuBiciRootStatus>(response);
+            var status = GenericConvert<DataProvider.MiBiciTuBici.Status.MiBiciTuBiciRootStatus>(response);
             return status!.ToStatusOutDtos();            
         }       
     }

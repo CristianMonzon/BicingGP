@@ -45,7 +45,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BicingGP.DataDomain\BicingGP.DataDomain.csproj" />
     <ProjectReference Include="..\BicingGP.DataProvider\BicingGP.DataProvider.csproj" />
   </ItemGroup>
 

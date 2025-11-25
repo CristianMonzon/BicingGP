@@ -11,11 +11,4 @@ namespace WebApiBicingGP.Controllers
         protected IMediator _mediator;
         protected IProvider _provider;
     }
-
-    public abstract class ControllerBaseGeneric<TStation,TStatus>  : Controller
-    {
-        protected IHttpClientFactory _httpClientFactoryGeneric;
-        protected IMediator _mediator;
-        protected IProviderGeneric<TStation,TStatus> _providerGeneric;
-    }
 }

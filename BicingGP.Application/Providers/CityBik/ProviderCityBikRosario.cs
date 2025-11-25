@@ -1,6 +1,7 @@
 ﻿using BicingGP.Application.Domain.CityBk.Rosario;
 using BicingGP.Application.MediatR.CityBik.Station.Rosario;
 using BicingGP.Application.MediatR.CityBik.Status.Rosario;
+using BicingGP.Application.Services;
 
 namespace BicingGP.DataProvider.Providers.CityBik
 {
