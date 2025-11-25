@@ -1,4 +1,4 @@
-﻿using BicingGP.Application.Domain.CityBk.Paris;
+﻿using BicingGP.Application.Domain.CityBik.Paris;
 using BicingGP.Application.MediatR.CityBik.Station.Paris;
 using BicingGP.Application.MediatR.CityBik.Status.Paris;
 using BicingGP.DataProvider.CityBik.Paris;

@@ -1,7 +1,7 @@
 ﻿using BicingGP.Application.MediatR.CityBik.Station.Rosario;
 using BicingGP.Application.MediatR.CityBik.Status.Rosario;
 
-namespace BicingGP.Application.Domain.CityBk.Rosario
+namespace BicingGP.Application.Domain.CityBik.Rosario
 {
     internal static class DtoExtended
     {
