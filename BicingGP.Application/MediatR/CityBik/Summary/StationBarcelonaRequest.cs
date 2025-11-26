@@ -3,7 +3,7 @@ using BicingGP.Application.MediatR.CityBik.Status.Barcelona;
 using BicingGP.DataProvider.Providers;
 using MediatR;
 
-namespace BicingGP.Application.MediatR.MiBiciTuBici.Summary
+namespace BicingGP.Application.MediatR.CityBik.Summary
 {
     public class StationBarcelonaRequest : IRequest<IEnumerable<StationBarcelonaResponse>>
     {

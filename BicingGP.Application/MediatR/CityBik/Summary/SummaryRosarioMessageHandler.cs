@@ -1,12 +1,11 @@
 ﻿using BicingGP.Application.Domain.CityBik;
 using BicingGP.Application.MediatR.CityBik.Station.Rosario;
 using BicingGP.Application.MediatR.CityBik.Status.Rosario;
-using BicingGP.Application.MediatR.MiBiciTuBici.Summary;
 using BicingGP.Application.Services;
 using BicingGP.Application.Services.Station;
 using MediatR;
 
-namespace BicingGP.Application.MediatR.MiBiciTuBici.Station.Summary
+namespace BicingGP.Application.MediatR.CityBik.Summary
 {
 
     public class SummaryRosarioMessageHandler : IRequestHandler<StationRosarioRequest, IEnumerable<StationRosarioResponse>>

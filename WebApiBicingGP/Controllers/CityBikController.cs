@@ -4,7 +4,7 @@ using BicingGP.Application.MediatR.CityBik.Station.Rosario;
 using BicingGP.Application.MediatR.CityBik.Status.Barcelona;
 using BicingGP.Application.MediatR.CityBik.Status.Paris;
 using BicingGP.Application.MediatR.CityBik.Status.Rosario;
-using BicingGP.Application.MediatR.MiBiciTuBici.Summary;
+using BicingGP.Application.MediatR.CityBik.Summary;
 using BicingGP.DataProvider.Providers;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
