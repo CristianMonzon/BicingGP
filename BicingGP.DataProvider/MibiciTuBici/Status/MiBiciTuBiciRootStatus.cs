@@ -15,7 +15,7 @@
 
     public class Station
     {
-        public int? station_id { get; set; }
+        public string? station_id { get; set; }
         public int? num_bikes_available { get; set; }
         public int? num_bikes_disabled { get; set; }
         public int? num_docks_available { get; set; }

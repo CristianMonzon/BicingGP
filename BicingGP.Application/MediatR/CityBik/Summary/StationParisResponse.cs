@@ -1,4 +1,4 @@
-﻿namespace BicingGP.Application.MediatR.MiBiciTuBici.Summary
+﻿namespace BicingGP.Application.MediatR.CityBik.Summary
 {
     public class StationParisResponse
     {

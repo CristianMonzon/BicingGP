@@ -4,8 +4,11 @@ using BicingGP.Application.MediatR.CityBik.Station.Rosario;
 using BicingGP.Application.MediatR.CityBik.Status.Barcelona;
 using BicingGP.Application.MediatR.CityBik.Status.Paris;
 using BicingGP.Application.MediatR.CityBik.Status.Rosario;
+using BicingGP.Application.MediatR.Velib.Station;
+using BicingGP.Application.MediatR.Velib.Status;
 using BicingGP.Application.Providers.CityBik;
 using BicingGP.Application.Providers.MiBiciTuBici;
+using BicingGP.Application.Providers.Velib;
 using BicingGP.Application.Services;
 using BicingGP.Application.Services.Station;
 using BicingGP.DataProvider.Providers.CityBik;
@@ -15,7 +18,7 @@ using NUnit.Framework;
 
 namespace BicingGP.Tests
 {
-    public class StationServicesCityBikTests
+    public class StationServicesTests
     {
         private IHttpService httpService;
         private IHttpClientFactory httpClientFactory;
@@ -110,8 +113,8 @@ namespace BicingGP.Tests
                 UrlGetStation = "https://www.mibicitubici.gob.ar/opendata/station_information.json"
             };
 
-            var stationServices = new StationService<BicingGP.Application.MediatR.MiBiciTuBici.Station.StationOutputDto,
-                BicingGP.Application.MediatR.MiBiciTuBici.Status.StatusOutputDto>(httpService, provider);
+            var stationServices = new StationService<BicingGP.Application.MediatR.MiBiciTuBici.Station.StationOutputDtoMiBiciTuBici,
+                BicingGP.Application.MediatR.MiBiciTuBici.Status.StatusOutputDtoMiBiciTuBici>(httpService, provider);
 
             //Act
             var stations = stationServices.Get();
@@ -122,5 +125,28 @@ namespace BicingGP.Tests
 
             result.Should().Be(result, $"Total number of stations {expected}");
         }
+
+        [Test]
+        public void Velib_StationsService_MoreThanOne()
+        {
+            //Arrange
+            Setup();
+            var provider = new ProviderVelib()
+            {
+                UrlGetStation = "https://velib-metropole-opendata.smovengo.cloud/opendata/Velib_Metropole/station_information.json"
+            };
+
+            var stationServices = new StationService<StationOutputDtoVelib, StatusOutputDtoVelib>(httpService, provider);
+
+            //Act
+            var stations = stationServices.Get();
+
+            //Assert
+            var expected = stations.Result.Count();
+            var result = (expected > 1);
+
+            result.Should().Be(result, $"Total number of stations {expected}");
+        }
+
     }
 }

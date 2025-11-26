@@ -1,7 +1,7 @@
 ﻿using BicingGP.Application.MediatR.CityBik.Station.Barcelona;
 using BicingGP.Application.MediatR.CityBik.Station.Paris;
 using BicingGP.Application.MediatR.CityBik.Station.Rosario;
-using BicingGP.Application.MediatR.MiBiciTuBici.Summary;
+using BicingGP.Application.MediatR.CityBik.Summary;
 
 namespace BicingGP.Application.Domain.CityBik
 {

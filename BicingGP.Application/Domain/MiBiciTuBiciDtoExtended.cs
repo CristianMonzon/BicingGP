@@ -5,14 +5,14 @@ namespace BicingGP.Application.Domain.MiBiciTuBici
 {
     public static class MiBiciTuBiciDtoExtended
     {
-        public static List<StatusOutputDto> ToStatusOutDtos(this DataProvider.MiBiciTuBici.Status.MiBiciTuBiciRootStatus status)
+        public static List<StatusOutputDtoMiBiciTuBici> ToStatusOutDtos(this DataProvider.MiBiciTuBici.Status.MiBiciTuBiciRootStatus status)
         {
             return status!.data!.stations!.Select(c => c.ToStatusOutDto()).ToList();
         }
 
-        public static StatusOutputDto ToStatusOutDto(this DataProvider.MiBiciTuBici.Status.Station station)
+        public static StatusOutputDtoMiBiciTuBici ToStatusOutDto(this DataProvider.MiBiciTuBici.Status.Station station)
         {
-            return new StatusOutputDto()
+            return new StatusOutputDtoMiBiciTuBici()
             {
                 StationId = station.station_id,
                 NumBikesAvailable = station.num_bikes_available,
@@ -26,14 +26,14 @@ namespace BicingGP.Application.Domain.MiBiciTuBici
             };
         }
 
-        public static List<StationOutputDto> ToStationOutDtos(this DataProvider.MiBiciTuBici.Station.MiBiciTuBiciRootStation station)
+        public static List<StationOutputDtoMiBiciTuBici> ToStationOutDtos(this DataProvider.MiBiciTuBici.Station.MiBiciTuBiciRootStation station)
         {
             return station!.data!.stations!.Select(c => c.ToStationOutDto()).ToList();
         }
 
-        private static StationOutputDto ToStationOutDto(this DataProvider.MiBiciTuBici.Station.Station station)
+        private static StationOutputDtoMiBiciTuBici ToStationOutDto(this DataProvider.MiBiciTuBici.Station.Station station)
         {
-            return new StationOutputDto()
+            return new StationOutputDtoMiBiciTuBici()
             {
                 StationId = station.station_id,
                 Name = station.name,
