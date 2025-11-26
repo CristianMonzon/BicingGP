@@ -1,4 +1,4 @@
-﻿using BicingGP.Application.Domain.CityBk.Rosario;
+﻿using BicingGP.Application.Domain.CityBik.Rosario;
 using BicingGP.Application.MediatR.CityBik.Station.Rosario;
 using BicingGP.Application.MediatR.CityBik.Status.Rosario;
 

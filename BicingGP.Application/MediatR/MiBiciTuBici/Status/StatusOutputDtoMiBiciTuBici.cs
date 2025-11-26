@@ -1,8 +1,8 @@
 ﻿namespace BicingGP.Application.MediatR.MiBiciTuBici.Status;
 
-public class StatusOutputDto
+public class StatusOutputDtoMiBiciTuBici
 {
-    public int? StationId { get; set; }
+    public string? StationId { get; set; }
     public int? NumBikesAvailable { get; set; }
     public int? NumBikesDisabled { get; set; }
     public int? NumDocksAvailable { get; set; }

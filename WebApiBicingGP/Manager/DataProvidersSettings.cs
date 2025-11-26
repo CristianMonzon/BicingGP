@@ -6,9 +6,12 @@ using BicingGP.Application.MediatR.CityBik.Status.Paris;
 using BicingGP.Application.MediatR.CityBik.Status.Rosario;
 using BicingGP.Application.MediatR.MiBiciTuBici.Station;
 using BicingGP.Application.MediatR.MiBiciTuBici.Status;
+using BicingGP.Application.MediatR.Velib.Station;
+using BicingGP.Application.MediatR.Velib.Status;
 using BicingGP.Application.Providers.CityBik;
 using BicingGP.Application.Providers.MiBiciTuBici;
 using BicingGP.Application.Providers.OpenData;
+using BicingGP.Application.Providers.Velib;
 using BicingGP.DataProvider.Providers;
 using BicingGP.DataProvider.Providers.CityBik;
 
@@ -20,14 +23,13 @@ namespace WebApiBicingGP.Manager
         private readonly IDataProviderFactory _dataProviderFactory;
 
         public ProviderOpenData ProviderOpenDataBarcelona { get; private set; }
-
+        
         public IProviderGeneric<StationOutputDtoBarcelona, StatusOutputDtoBarcelona> ProviderCityBikBarcelona { get; private set; }
-
         public IProviderGeneric<StationOutputDtoRosario, StatusOutputDtoRosario> ProviderCityBikRosario { get; private set; }
-
         public IProviderGeneric<StationOutputDtoParis, StatusOutputDtoParis> ProviderCityBikParis { get; private set; }
-
-        public IProviderGeneric<StationOutputDto, StatusOutputDto> ProviderMiBiciTuBici { get; private set; }
+        
+        public IProviderGeneric<StationOutputDtoMiBiciTuBici, StatusOutputDtoMiBiciTuBici> ProviderMiBiciTuBici { get; private set; }
+        public IProviderGeneric<StationOutputDtoVelib, StatusOutputDtoVelib> ProviderVelib { get; private set; }
 
         public DataProvidersSettings(IConfiguration configuration, IDataProviderFactory factory)
         {
@@ -39,6 +41,7 @@ namespace WebApiBicingGP.Manager
             ProviderCityBikRosario = CreateProvider<ProviderCityBikRosario>("CityBikRosario");
             ProviderCityBikParis = CreateProvider<ProviderCityBikParis>("CityBikVelib");
             ProviderMiBiciTuBici = CreateProvider<ProviderMiBiciTuBici>("MiBiciTuBici");
+            ProviderVelib = CreateProvider<ProviderVelib>("Velib");
 
         }
         private T CreateProvider<T>(string sectionName) where T : class, new()

@@ -10,7 +10,7 @@ namespace WebApiBicingGP.Controllers
 {
     [ApiController]
     [Route("api/v1/[Controller]")]
-    public class MiBiciTuBiciController : ControllerBaseGeneric<StationOutputDto, StatusOutputDto>
+    public class MiBiciTuBiciController : ControllerBaseGeneric<StationOutputDtoMiBiciTuBici, StatusOutputDtoMiBiciTuBici>
     {
         public MiBiciTuBiciController(IMediator mediator, DataProvidersSettings providerSettings)
         {
@@ -22,12 +22,12 @@ namespace WebApiBicingGP.Controllers
         /// Get Status information of all stations
         /// </summary>
         [HttpGet("Status")]
-        public async Task<ActionResult<IEnumerable<StatusOutputDto>>> GetStatus()
+        public async Task<ActionResult<IEnumerable<StatusOutputDtoMiBiciTuBici>>> GetStatus()
         {
             try
             {
-                var response = await _mediator.Send(new StatusInputDto(_providerGeneric));
-                var statusResult = new Result<IEnumerable<StatusOutputDto>>(response);
+                var response = await _mediator.Send(new StatusInputDtoMiBiciTuBici(_providerGeneric));
+                var statusResult = new Result<IEnumerable<StatusOutputDtoMiBiciTuBici>>(response);
                 return Ok(statusResult.ResultData);
             }
             catch (Exception ex)
@@ -42,12 +42,12 @@ namespace WebApiBicingGP.Controllers
         /// <returns></returns>
         /// </summary>
         [HttpGet("Station")]
-        public async Task<ActionResult<IEnumerable<StationOutputDto>>> GetStation()
+        public async Task<ActionResult<IEnumerable<StationOutputDtoMiBiciTuBici>>> GetStation()
         {
             try
             {
-                var response = await _mediator.Send(new StationInputDto(_providerGeneric));
-                var stationResult = new Result<IEnumerable<StationOutputDto>>(response);
+                var response = await _mediator.Send(new StationInputDtoMiBiciTuBici(_providerGeneric));
+                var stationResult = new Result<IEnumerable<StationOutputDtoMiBiciTuBici>>(response);
                 return Ok(stationResult.ResultData);
             }
             catch (Exception ex)

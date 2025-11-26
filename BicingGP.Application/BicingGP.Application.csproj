@@ -4,8 +4,8 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <AssemblyVersion>1.1.0</AssemblyVersion>
-    <FileVersion>1.1.0</FileVersion>
+    <AssemblyVersion>2.0.0</AssemblyVersion>
+    <FileVersion>2.0.0</FileVersion>
     <RepositoryUrl>https://github.com/CristianMonzon/BicingGP</RepositoryUrl>
   </PropertyGroup>
 
@@ -45,7 +45,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BicingGP.DataDomain\BicingGP.DataDomain.csproj" />
     <ProjectReference Include="..\BicingGP.DataProvider\BicingGP.DataProvider.csproj" />
   </ItemGroup>
 

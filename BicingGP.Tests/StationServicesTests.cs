@@ -4,8 +4,12 @@ using BicingGP.Application.MediatR.CityBik.Station.Rosario;
 using BicingGP.Application.MediatR.CityBik.Status.Barcelona;
 using BicingGP.Application.MediatR.CityBik.Status.Paris;
 using BicingGP.Application.MediatR.CityBik.Status.Rosario;
+using BicingGP.Application.MediatR.Velib.Station;
+using BicingGP.Application.MediatR.Velib.Status;
 using BicingGP.Application.Providers.CityBik;
 using BicingGP.Application.Providers.MiBiciTuBici;
+using BicingGP.Application.Providers.Velib;
+using BicingGP.Application.Services;
 using BicingGP.Application.Services.Station;
 using BicingGP.DataProvider.Providers.CityBik;
 using FluentAssertions;
@@ -14,8 +18,9 @@ using NUnit.Framework;
 
 namespace BicingGP.Tests
 {
-    public class StationServicesCityBikTests
+    public class StationServicesTests
     {
+        private IHttpService httpService;
         private IHttpClientFactory httpClientFactory;
 
         [SetUp]
@@ -26,6 +31,7 @@ namespace BicingGP.Tests
             .BuildServiceProvider();
 
             httpClientFactory = serviceProvider.GetRequiredService<IHttpClientFactory>();
+            httpService = new HttpService(httpClientFactory);
         }
 
         [Test]
@@ -38,7 +44,7 @@ namespace BicingGP.Tests
                 UrlGetStation = "http://api.citybik.es/v2/networks/bicing"
             };
             
-            var stationServices = new StationService<StationOutputDtoBarcelona,StatusOutputDtoBarcelona>(httpClientFactory, provider);
+            var stationServices = new StationService<StationOutputDtoBarcelona,StatusOutputDtoBarcelona>(httpService, provider);
 
             //Act
             var stations = stationServices.Get();
@@ -60,7 +66,7 @@ namespace BicingGP.Tests
                 UrlGetStation= "http://api.citybik.es/v2/networks/mibicitubici"
             };
 
-            var stationServices = new StationService<StationOutputDtoRosario, StatusOutputDtoRosario>(httpClientFactory, provider);
+            var stationServices = new StationService<StationOutputDtoRosario, StatusOutputDtoRosario>(httpService, provider);
 
             //Act
             var stations = stationServices.Get();
@@ -83,7 +89,7 @@ namespace BicingGP.Tests
                 UrlGetStation = "http://api.citybik.es/v2/networks/velib"
             };
 
-            var stationServices = new StationService<StationOutputDtoParis, StatusOutputDtoParis>(httpClientFactory, provider);
+            var stationServices = new StationService<StationOutputDtoParis, StatusOutputDtoParis>(httpService, provider);
 
             //Act
             var stations = stationServices.Get();
@@ -107,8 +113,8 @@ namespace BicingGP.Tests
                 UrlGetStation = "https://www.mibicitubici.gob.ar/opendata/station_information.json"
             };
 
-            var stationServices = new StationService<BicingGP.Application.MediatR.MiBiciTuBici.Station.StationOutputDto,
-                BicingGP.Application.MediatR.MiBiciTuBici.Status.StatusOutputDto>(httpClientFactory, provider);
+            var stationServices = new StationService<BicingGP.Application.MediatR.MiBiciTuBici.Station.StationOutputDtoMiBiciTuBici,
+                BicingGP.Application.MediatR.MiBiciTuBici.Status.StatusOutputDtoMiBiciTuBici>(httpService, provider);
 
             //Act
             var stations = stationServices.Get();
@@ -119,5 +125,28 @@ namespace BicingGP.Tests
 
             result.Should().Be(result, $"Total number of stations {expected}");
         }
+
+        [Test]
+        public void Velib_StationsService_MoreThanOne()
+        {
+            //Arrange
+            Setup();
+            var provider = new ProviderVelib()
+            {
+                UrlGetStation = "https://velib-metropole-opendata.smovengo.cloud/opendata/Velib_Metropole/station_information.json"
+            };
+
+            var stationServices = new StationService<StationOutputDtoVelib, StatusOutputDtoVelib>(httpService, provider);
+
+            //Act
+            var stations = stationServices.Get();
+
+            //Assert
+            var expected = stations.Result.Count();
+            var result = (expected > 1);
+
+            result.Should().Be(result, $"Total number of stations {expected}");
+        }
+
     }
 }

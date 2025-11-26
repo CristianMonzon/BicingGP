@@ -6,6 +6,8 @@ using BicingGP.Application.MediatR.CityBik.Status.Paris;
 using BicingGP.Application.MediatR.CityBik.Status.Rosario;
 using BicingGP.Application.Providers.CityBik;
 using BicingGP.Application.Providers.MiBiciTuBici;
+using BicingGP.Application.Providers.Velib;
+using BicingGP.Application.Services;
 using BicingGP.Application.Services.Status;
 using BicingGP.DataProvider.Providers.CityBik;
 using FluentAssertions;
@@ -14,8 +16,9 @@ using NUnit.Framework;
 
 namespace BicingGP.Tests
 {
-    public class StatusServicesCityBikTests
+    public class StatusServicesTests
     {
+        private IHttpService httpService;
         private IHttpClientFactory httpClientFactory;
 
         [SetUp]
@@ -26,6 +29,7 @@ namespace BicingGP.Tests
             .BuildServiceProvider();
 
             httpClientFactory = serviceProvider.GetRequiredService<IHttpClientFactory>();
+            httpService = new HttpService(httpClientFactory);
         }
 
         [Test]
@@ -38,7 +42,7 @@ namespace BicingGP.Tests
                 UrlGetStatus = "http://api.citybik.es/v2/networks/bicing"
             };
             
-            var statusServices = new StatusService<StationOutputDtoBarcelona,StatusOutputDtoBarcelona>(httpClientFactory, provider);
+            var statusServices = new StatusService<StationOutputDtoBarcelona,StatusOutputDtoBarcelona>(httpService, provider);
 
             //Act
             var stations = statusServices.Get();
@@ -60,7 +64,7 @@ namespace BicingGP.Tests
                 UrlGetStatus = "http://api.citybik.es/v2/networks/mibicitubici"
             };
 
-            var statusServices = new StatusService<StationOutputDtoRosario, StatusOutputDtoRosario>(httpClientFactory, provider);
+            var statusServices = new StatusService<StationOutputDtoRosario, StatusOutputDtoRosario>(httpService, provider);
 
             //Act
             var stations = statusServices.Get();
@@ -83,7 +87,7 @@ namespace BicingGP.Tests
                 UrlGetStatus = "http://api.citybik.es/v2/networks/velib"
             };
 
-            var statusServices = new StatusService<StationOutputDtoParis, StatusOutputDtoParis>(httpClientFactory, provider);
+            var statusServices = new StatusService<StationOutputDtoParis, StatusOutputDtoParis>(httpService, provider);
 
             //Act
             var stations = statusServices.Get();
@@ -105,8 +109,31 @@ namespace BicingGP.Tests
                 UrlGetStatus = "https://www.mibicitubici.gob.ar/opendata/station_status.json"
             };
                 
-            var statusServices = new StatusService<BicingGP.Application.MediatR.MiBiciTuBici.Station.StationOutputDto
-                , BicingGP.Application.MediatR.MiBiciTuBici.Status.StatusOutputDto>(httpClientFactory, provider);
+            var statusServices = new StatusService<BicingGP.Application.MediatR.MiBiciTuBici.Station.StationOutputDtoMiBiciTuBici
+                , BicingGP.Application.MediatR.MiBiciTuBici.Status.StatusOutputDtoMiBiciTuBici>(httpService, provider);
+
+            //Act
+            var stations = statusServices.Get();
+
+            //Assert
+            var expected = stations.Result.Count();
+            var result = (expected > 1);
+
+            result.Should().Be(result, $"Total number of stations {expected}");
+        }
+
+        [Test]
+        public void Velib_StatusService_GetStatus_MoreThanOne()
+        {
+            //Arrange
+            Setup();
+            var provider = new ProviderVelib()
+            {
+                UrlGetStatus = "https://velib-metropole-opendata.smovengo.cloud/opendata/Velib_Metropole/station_status.json"
+            };
+
+            var statusServices = new StatusService<BicingGP.Application.MediatR.Velib.Station.StationOutputDtoVelib
+                , BicingGP.Application.MediatR.Velib.Status.StatusOutputDtoVelib>(httpService, provider);
 
             //Act
             var stations = statusServices.Get();
