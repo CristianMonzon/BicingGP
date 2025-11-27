@@ -13,7 +13,7 @@ La aplicación se desarrolló inicialmente en ASP.NET 4.7.1. En esta versión es
 ### Token de uso
 
 Para visualizar los ejemplos de esta version WebAPI .NET Core, en el fichero appSettings.json debes indicar tu Token de uso del API OpenData. 
-Consigue tu token en esta página [https://opendata-ajuntament.barcelona.cat/es/desenvolupadors] (https://opendata-ajuntament.barcelona.cat/es/desenvolupadors)
+Consigue tu token en esta página [https://opendata-ajuntament.barcelona.cat/es/desenvolupadors](https://opendata-ajuntament.barcelona.cat/es/desenvolupadors)
 
 ### Enlace 
 
