@@ -6,8 +6,7 @@ namespace BicingGP.Application.Services.Station
     {
         private readonly IHttpService _httpService;
         private readonly IProviderGeneric<TStationOutPut, TStatusOutPut> _providerGeneric;
-        private readonly IStationConverter<TStationOutPut> _stationConvert;
-
+        
         public StationService(IHttpService httpService, IProviderGeneric<TStationOutPut, TStatusOutPut> providerGeneric)
         {
             _httpService = httpService;
@@ -17,7 +16,6 @@ namespace BicingGP.Application.Services.Station
         public StationService(IHttpService httpService, IStationConverter<TStationOutPut> stationConvert)
         {
             _httpService = httpService;
-            _stationConvert = stationConvert;
         }
 
         public virtual async Task<IEnumerable<TStationOutPut>> Get()

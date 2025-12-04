@@ -4,8 +4,8 @@ namespace BicingGP.Application.Services.Status
 {
     public class StatusService<TStationOutPut, TStatusOutPut>
     {		
-		protected IHttpService _httpService;
-        protected IProviderGeneric<TStationOutPut, TStatusOutPut> _providerGeneric;
+		private readonly IHttpService _httpService;
+        private readonly IProviderGeneric<TStationOutPut, TStatusOutPut> _providerGeneric;
 
         public StatusService(IHttpService httpService, IProviderGeneric<TStationOutPut, TStatusOutPut> providerGeneric)
         {
